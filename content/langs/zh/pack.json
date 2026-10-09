@@ -1,0 +1,182 @@
+{
+  "$schema": "../../../schema/langpack.schema.json",
+  "id": "zh",
+  "version": 2,
+  "name": {"en": "Mandarin Chinese", "pt-BR": "Mandarim"},
+  "script": "hanzi",
+  "romanization": "pinyin",
+  "voiceTest": {"speech": "今天天气很好，我们一起去公园散步吧。"},
+  "exercises": [
+    {
+      "id": "zh-ma-ma-ma-ma",
+      "cat": "phonemes",
+      "mode": "tones",
+      "syl": [
+        ["mā", "妈", 1],
+        ["má", "麻", 2],
+        ["mǎ", "马", 3],
+        ["mà", "骂", 4],
+        "·",
+        ["mā", "妈", 1],
+        ["má", "麻", 2],
+        ["mǎ", "马", 3],
+        ["mà", "骂", 4]
+      ],
+      "dur": 8,
+      "emo": {"en": "Tones 1·2·3·4", "pt-BR": "Tons 1·2·3·4"},
+      "tip": "tones",
+      "sub": {"en": "mother · hemp · horse · scold", "pt-BR": "mãe · cânhamo · cavalo · repreender"},
+      "reg": {"en": "Speech · Tone contour", "pt-BR": "Fala · Contorno tonal"}
+    },
+    {
+      "id": "zh-ba-ba-ba-ba",
+      "cat": "phonemes",
+      "mode": "tones",
+      "syl": [
+        ["bā", "八", 1],
+        ["bá", "拔", 2],
+        ["bǎ", "把", 3],
+        ["bà", "爸", 4],
+        "·",
+        ["bā", "八", 1],
+        ["bá", "拔", 2],
+        ["bǎ", "把", 3],
+        ["bà", "爸", 4]
+      ],
+      "dur": 8,
+      "emo": {"en": "Tones 1·2·3·4", "pt-BR": "Tons 1·2·3·4"},
+      "tip": "tones",
+      "sub": {"en": "eight · pull · hold · father", "pt-BR": "oito · puxar · segurar · pai"},
+      "reg": {"en": "Speech · Tone contour", "pt-BR": "Fala · Contorno tonal"}
+    },
+    {
+      "id": "zh-yi-yi-yi-yi",
+      "cat": "phonemes",
+      "mode": "tones",
+      "syl": [
+        ["yī", "一", 1],
+        ["yí", "姨", 2],
+        ["yǐ", "椅", 3],
+        ["yì", "意", 4],
+        "·",
+        ["yī", "一", 1],
+        ["yí", "姨", 2],
+        ["yǐ", "椅", 3],
+        ["yì", "意", 4]
+      ],
+      "dur": 8,
+      "emo": {"en": "Tones 1·2·3·4", "pt-BR": "Tons 1·2·3·4"},
+      "tip": "tones",
+      "sub": {"en": "one · aunt · chair · meaning", "pt-BR": "um · tia · cadeira · sentido"},
+      "reg": {"en": "Speech · Tone contour", "pt-BR": "Fala · Contorno tonal"}
+    },
+    {
+      "id": "zh-zhi-chi-shi-ri",
+      "cat": "phonemes",
+      "mode": "tones",
+      "syl": [
+        ["zhī", "知", 1],
+        ["chī", "吃", 1],
+        ["shī", "诗", 1],
+        ["rì", "日", 4],
+        "·",
+        ["zhī", "知", 1],
+        ["chī", "吃", 1],
+        ["shī", "诗", 1],
+        ["rì", "日", 4]
+      ],
+      "dur": 8,
+      "emo": {"en": "Retroflexes", "pt-BR": "Retroflexas"},
+      "tip": "retro",
+      "sub": {"en": "know · eat · poem · sun", "pt-BR": "saber · comer · poema · sol"},
+      "reg": {"en": "Speech · Tone contour", "pt-BR": "Fala · Contorno tonal"}
+    },
+    {
+      "id": "zh-zi-ci-si-ji",
+      "cat": "phonemes",
+      "mode": "tones",
+      "syl": [["zī", "资", 1], ["cī", "疵", 1], ["sī", "思", 1], "·", ["jī", "鸡", 1], ["qī", "七", 1], ["xī", "西", 1]],
+      "dur": 7,
+      "emo": {"en": "Alveolars vs palatals", "pt-BR": "Alveolares vs palatais"},
+      "tip": "alveolar",
+      "sub": {"en": "z c s  ·  j q x", "pt-BR": "z c s  ·  j q x"},
+      "reg": {"en": "Speech · Tone contour", "pt-BR": "Fala · Contorno tonal"}
+    },
+    {
+      "id": "zh-lu-nu-yu-qu",
+      "cat": "phonemes",
+      "mode": "tones",
+      "syl": [
+        ["lǜ", "绿", 4],
+        ["nǚ", "女", 3],
+        ["yú", "鱼", 2],
+        ["qù", "去", 4],
+        "·",
+        ["lǜ", "绿", 4],
+        ["nǚ", "女", 3],
+        ["yú", "鱼", 2],
+        ["qù", "去", 4]
+      ],
+      "dur": 7,
+      "emo": {"en": "Vowel ü", "pt-BR": "Vogal ü"},
+      "tip": "umlaut",
+      "sub": {"en": "green · woman · fish · go", "pt-BR": "verde · mulher · peixe · ir"},
+      "reg": {"en": "Speech · Tone contour", "pt-BR": "Fala · Contorno tonal"}
+    },
+    {
+      "id": "zh-ni-hao-ni-hao",
+      "cat": "phonemes",
+      "mode": "tones",
+      "syl": [["nǐ", "你", 2], ["hǎo", "好", 3], ", ", ["nǐ", "你", 2], ["hǎo", "好", 3], ["ma", "吗", 0]],
+      "dur": 6,
+      "emo": {"en": "Greeting", "pt-BR": "Saudação"},
+      "tip": "sandhi",
+      "sub": {"en": "Hello — hello, how are you?", "pt-BR": "Olá — olá, tudo bem?"},
+      "reg": {"en": "Speech · Tone contour", "pt-BR": "Fala · Contorno tonal"}
+    },
+    {
+      "id": "zh-wo-ai-chang-ge",
+      "cat": "phonemes",
+      "mode": "tones",
+      "syl": [["wǒ", "我", "h"], ["ài", "爱", 4], ["chàng", "唱", 4], ["gē", "歌", 1]],
+      "dur": 6,
+      "emo": {"en": "Statement", "pt-BR": "Afirmativo"},
+      "tip": "phrasezh",
+      "sub": {"en": "I love singing", "pt-BR": "Eu adoro cantar"},
+      "reg": {"en": "Speech · Tone contour", "pt-BR": "Fala · Contorno tonal"}
+    },
+    {
+      "id": "zh-xie-xie-ni-zai",
+      "cat": "phonemes",
+      "mode": "tones",
+      "syl": [["xiè", "谢", 4], ["xie", "谢", 0], ["nǐ", "你", 3], ", ", ["zài", "再", 4], ["jiàn", "见", 4]],
+      "dur": 6,
+      "emo": {"en": "Gratitude", "pt-BR": "Gratidão"},
+      "tip": "phrasezh",
+      "sub": {"en": "Thank you — see you", "pt-BR": "Obrigado — até logo"},
+      "reg": {"en": "Speech · Tone contour", "pt-BR": "Fala · Contorno tonal"}
+    },
+    {
+      "id": "zh-jin-tian-tian-qi",
+      "cat": "phonemes",
+      "mode": "tones",
+      "syl": [["jīn", "今", 1], ["tiān", "天", 1], ["tiān", "天", 1], ["qì", "气", 4], ["hěn", "很", 2], ["hǎo", "好", 3]],
+      "dur": 7,
+      "emo": {"en": "Descriptive", "pt-BR": "Descritivo"},
+      "tip": "sandhi",
+      "sub": {"en": "The weather is great today", "pt-BR": "Hoje o tempo está ótimo"},
+      "reg": {"en": "Speech · Tone contour", "pt-BR": "Fala · Contorno tonal"}
+    },
+    {
+      "id": "zh-wo-men-yi-qi",
+      "cat": "phonemes",
+      "mode": "tones",
+      "syl": [["wǒ", "我", "h"], ["men", "们", 0], ["yì", "一", 4], ["qǐ", "起", "h"], ["chàng", "唱", 4], ["ba", "吧", 0]],
+      "dur": 7,
+      "emo": {"en": "Invitation", "pt-BR": "Convite"},
+      "tip": "phrasezh",
+      "sub": {"en": "Let's sing together", "pt-BR": "Vamos cantar juntos"},
+      "reg": {"en": "Speech · Tone contour", "pt-BR": "Fala · Contorno tonal"}
+    }
+  ]
+}

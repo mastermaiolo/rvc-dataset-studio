@@ -1,0 +1,45 @@
+name: Bug report
+description: Something doesn't work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting! Please never attach recordings of other people.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. Open …\n2. Click …\n3. See …"
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      placeholder: e.g. Firefox 131, Safari iOS 18.1
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system and device
+      placeholder: e.g. Fedora 41, iPhone 15, Windows 11
+  - type: input
+    id: audio
+    attributes:
+      label: Microphone / audio interface and sample rate
+      description: The sample rate is shown in the Export panel.
+      placeholder: e.g. Focusrite Scarlett Solo, 48.0 kHz
+  - type: textarea
+    id: console
+    attributes:
+      label: Console errors
+      description: Open the browser console (F12) and paste any red messages.
+      render: text

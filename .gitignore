@@ -1,0 +1,8 @@
+node_modules/
+dist/
+coverage/
+.vercel/
+*.log
+.DS_Store
+# private working notes, never published
+prompt_projeto_publico.md

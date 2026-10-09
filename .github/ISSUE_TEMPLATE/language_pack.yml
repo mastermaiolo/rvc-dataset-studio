@@ -1,0 +1,29 @@
+name: Language pack
+description: Propose or review speech exercises for a language
+labels: [language-pack]
+body:
+  - type: markdown
+    attributes:
+      value: See docs/LANGUAGE_PACKS.md for the format. Only original or public-domain text — never song lyrics.
+  - type: input
+    id: lang
+    attributes:
+      label: Language (BCP-47)
+      placeholder: e.g. fr, de, es-MX, ja
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is this about?
+      options:
+        - A new language pack
+        - Corrections to an existing pack (wording, naturalness, phonetics)
+        - A new tone or script system that needs code changes
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Which sounds are characteristic or hard in this language? Which exercises would you add or change?

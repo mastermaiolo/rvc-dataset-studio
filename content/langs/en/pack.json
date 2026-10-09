@@ -1,0 +1,485 @@
+{
+  "$schema": "../../../schema/langpack.schema.json",
+  "id": "en",
+  "version": 2,
+  "name": {"en": "English", "pt-BR": "Inglês"},
+  "script": "latin",
+  "voiceTest": {
+    "speech": "Every summer, my grandfather played old records on the porch, and the whole street would stop to listen."
+  },
+  "exercises": [
+    {
+      "id": "p-hold-on-hold-on",
+      "cat": "glides",
+      "mode": "melody",
+      "pos": 0.474,
+      "notes": [["Hold", 0], ["on", 3], ["hold", 0], ["on", -2], ["to", -4], ["me", -2, 2]],
+      "dur": 7,
+      "reg": {"en": "Chest → Middle", "pt-BR": "Peito → Médio"},
+      "emo": {"en": "Tender", "pt-BR": "Terno"},
+      "tip": "phrase",
+      "sub": {"en": "Original phrase", "pt-BR": "Frase original"}
+    },
+    {
+      "id": "p-let-the-ri-ver",
+      "cat": "glides",
+      "mode": "melody",
+      "pos": 0.263,
+      "notes": [["Let", 0], ["the", 2], ["ri-", 4], ["ver", 7], ["car-", 9], ["ry", 7], ["you", 4], ["home", 2, 3]],
+      "dur": 8,
+      "reg": {"en": "Middle", "pt-BR": "Médio"},
+      "emo": {"en": "Nostalgic", "pt-BR": "Nostálgico"},
+      "tip": "phrase",
+      "sub": {"en": "Original phrase", "pt-BR": "Frase original"}
+    },
+    {
+      "id": "p-i-will-stay-un",
+      "cat": "glides",
+      "mode": "melody",
+      "pos": 0.632,
+      "notes": [
+        ["I", 0],
+        ["will", 0],
+        ["stay", 2, 2],
+        ["un-", 0],
+        ["til", -3],
+        ["the", -5],
+        ["mor-", -3],
+        ["ning", -5],
+        ["light", -7, 3]
+      ],
+      "dur": 9,
+      "reg": {"en": "Middle", "pt-BR": "Médio"},
+      "emo": {"en": "Hopeful", "pt-BR": "Esperança"},
+      "tip": "phrase",
+      "sub": {"en": "Original phrase · descends to the tonic", "pt-BR": "Frase original · descida até a tônica"}
+    },
+    {
+      "id": "p-oh-oh-oh-can",
+      "cat": "glides",
+      "mode": "melody",
+      "pos": 0.263,
+      "notes": [
+        ["Oh", 0, 1.5],
+        ["oh", 4, 1.5],
+        ["oh", 7, 2],
+        ["can", 9, 0.75],
+        ["you", 7, 0.75],
+        ["hear", 4],
+        ["me", 2],
+        ["now", 0, 2.5]
+      ],
+      "dur": 8,
+      "reg": {"en": "Middle", "pt-BR": "Médio"},
+      "emo": {"en": "Plea", "pt-BR": "Apelo"},
+      "tip": "phrase",
+      "sub": {"en": "Original phrase · melodic arch", "pt-BR": "Frase original · arco melódico"}
+    },
+    {
+      "id": "p-wal-king-slow-un",
+      "cat": "glides",
+      "mode": "melody",
+      "pos": 0.368,
+      "notes": [
+        ["Wal-", 0],
+        ["king", 2],
+        ["slow", 5, 2],
+        ["un-", 7],
+        ["der", 5],
+        ["gol-", 2],
+        ["den", 0],
+        ["skies", 2, 3]
+      ],
+      "dur": 8,
+      "reg": {"en": "Middle", "pt-BR": "Médio"},
+      "emo": {"en": "Serene", "pt-BR": "Sereno"},
+      "tip": "phrase",
+      "sub": {"en": "Original phrase · pentatonic", "pt-BR": "Frase original · pentatônica"}
+    },
+    {
+      "id": "p-da-da-da-da",
+      "cat": "glides",
+      "mode": "melody",
+      "pos": 0.263,
+      "notes": [["Da", 0], ["da", 4], ["da", 7], ["da", 4], ["da", 7], ["da", 9], ["daa", 7, 3]],
+      "dur": 7,
+      "reg": {"en": "Middle", "pt-BR": "Médio"},
+      "emo": {"en": "Rhythmic", "pt-BR": "Rítmico"},
+      "tip": "phrase",
+      "sub": {"en": "“Da” syllables — clean attack, not nasal", "pt-BR": "Sílabas “Da” — ataque limpo, sem nasalar"}
+    },
+    {
+      "id": "p-come-back-to-the",
+      "cat": "glides",
+      "mode": "melody",
+      "pos": 0.474,
+      "notes": [["Come", 0], ["back", 0], ["to", -2], ["the", -4], ["start", 3, 2], ["a-", 0], ["gain", -2, 3]],
+      "dur": 8,
+      "reg": {"en": "Middle", "pt-BR": "Médio"},
+      "emo": {"en": "Longing", "pt-BR": "Saudade"},
+      "tip": "phrase",
+      "sub": {"en": "Original phrase · leap of a fifth", "pt-BR": "Frase original · salto de quinta"}
+    },
+    {
+      "id": "p-sing-it-loud-sing",
+      "cat": "glides",
+      "mode": "melody",
+      "pos": 0.632,
+      "notes": [["Sing", 0], ["it", 2], ["loud", 5, 2], ["sing", 2], ["it", 0], ["free", -3, 3]],
+      "dur": 7,
+      "reg": {"en": "Middle → Passaggio", "pt-BR": "Médio → Passagem"},
+      "emo": {"en": "Liberating", "pt-BR": "Libertador"},
+      "tip": "phrase",
+      "sub": {"en": "Original phrase · peaks high", "pt-BR": "Frase original · pico no agudo"}
+    },
+    {
+      "id": "p-hey-hey-car-ry",
+      "cat": "glides",
+      "mode": "melody",
+      "pos": 0.632,
+      "notes": [["Hey", 0, 1.5], ["hey", -3, 1.5], ["car-", -5], ["ry", -3], ["on", -7, 3]],
+      "dur": 6,
+      "reg": {"en": "Middle", "pt-BR": "Médio"},
+      "emo": {"en": "Confident", "pt-BR": "Confiante"},
+      "tip": "phrase",
+      "sub": {"en": "Original phrase · resolves on the tonic", "pt-BR": "Frase original · resolução na tônica"}
+    },
+    {
+      "id": "sp-the-morning-train-leaves",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "The morning train leaves at seven, so if we want a good seat, we really should get there a little early.",
+      "dur": 8,
+      "emo": {"en": "Statement", "pt-BR": "Afirmativa"},
+      "tip": "speech",
+      "sub": {"en": "Falling, assured intonation at the end", "pt-BR": "Entoação descendente e segura no fim"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-did-you-really-think",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "Did you really think I would forget about tonight, after everything we planned together for the last three months?",
+      "dur": 8,
+      "emo": {"en": "Question ↗", "pt-BR": "Pergunta ↗"},
+      "tip": "question",
+      "sub": {
+        "en": "Yes/no question: the melody rises at the end",
+        "pt-BR": "Pergunta sim/não: a melodia sobe no fim"
+      },
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-i-never-said-she",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "I never said she took the money. I said *he* took it, and I can prove it.",
+      "dur": 7,
+      "emo": {"en": "Emphasis", "pt-BR": "Ênfase"},
+      "tip": "emphasis",
+      "sub": {"en": "Contrast: all the weight on “he”", "pt-BR": "Contraste: toda a força no “he”"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-every-summer-my-grandfather",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "Every summer, my grandfather played old vinyl records on the porch, and the whole street would stop to listen until midnight.",
+      "dur": 9,
+      "emo": {"en": "Narrative", "pt-BR": "Narrativa"},
+      "tip": "speech",
+      "sub": {"en": "Storyteller tone, calm pace", "pt-BR": "Tom de contador de histórias, ritmo calmo"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-that-was-the-best",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "That was the best show we have ever played! Did you hear the crowd singing every single word back at us?",
+      "dur": 8,
+      "emo": {"en": "Exclamation", "pt-BR": "Exclamação"},
+      "tip": "emotion",
+      "sub": {
+        "en": "High energy and a smile in the voice, no shouting",
+        "pt-BR": "Energia alta e sorriso na voz, sem gritar"
+      },
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-where-were-you-when",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "Where were you when the lights went out across the city, and why didn’t you answer any of my calls?",
+      "dur": 8,
+      "emo": {"en": "Question ↘", "pt-BR": "Pergunta ↘"},
+      "tip": "question",
+      "sub": {
+        "en": "Open question (where/why): the melody falls at the end",
+        "pt-BR": "Pergunta aberta (where/why): a melodia desce no fim"
+      },
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-take-a-slow-breath",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "Take a slow breath, relax your shoulders, and let the sound come out on its own. There is no rush at all.",
+      "dur": 8,
+      "emo": {"en": "Calm", "pt-BR": "Calma"},
+      "tip": "speech",
+      "sub": {"en": "Low, close voice, without whispering", "pt-BR": "Voz baixa e próxima, sem sussurrar"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-it-is-not-about",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "It is not about how *loud* you sing. It is about how *true* it feels when the words finally leave your mouth.",
+      "dur": 8,
+      "emo": {"en": "Emphasis", "pt-BR": "Ênfase"},
+      "tip": "emphasis",
+      "sub": {"en": "Two stressed words: loud / true", "pt-BR": "Duas palavras em destaque: loud / true"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-hey-it-s-me-i-m",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "Hey, it’s me. I’m running a little late because of the traffic, but I promise I’m on my way right now.",
+      "dur": 8,
+      "emo": {"en": "Dialogue · A", "pt-BR": "Diálogo · A"},
+      "tip": "speech",
+      "sub": {"en": "Voice message to a friend, relaxed", "pt-BR": "Mensagem de voz para um amigo, descontraído"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-no-worries-at-all",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "No worries at all. Grab a coffee, sit down, and we’ll start the session as soon as the engineer arrives.",
+      "dur": 8,
+      "emo": {"en": "Dialogue · B", "pt-BR": "Diálogo · B"},
+      "tip": "speech",
+      "sub": {"en": "Friendly, reassuring reply", "pt-BR": "Resposta simpática e tranquilizadora"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-could-you-play-that",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "Could you play that part again, just a little bit slower this time, so I can find the right harmony?",
+      "dur": 8,
+      "emo": {"en": "Polite request", "pt-BR": "Pedido educado"},
+      "tip": "question",
+      "sub": {"en": "Gentle request, slight rise at the end", "pt-BR": "Pedido gentil, subida leve no fim"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-wait-you-wrote-this",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "Wait, you wrote this whole song in one night? That’s incredible. How did you even come up with that melody?",
+      "dur": 8,
+      "emo": {"en": "Surprise", "pt-BR": "Surpresa"},
+      "tip": "emotion",
+      "sub": {"en": "Real astonishment in the first sentence", "pt-BR": "Espanto genuíno na primeira frase"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-some-songs-stay-with",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "Some songs stay with you long after the people who sang them are gone, like an echo that never fades.",
+      "dur": 8,
+      "emo": {"en": "Melancholy", "pt-BR": "Melancolia"},
+      "tip": "emotion",
+      "sub": {"en": "Darker, slower voice, without dragging", "pt-BR": "Voz mais escura e lenta, sem arrastar"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-trust-me-once-the",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "Trust me, once the chorus kicks in and the drums come back, everybody in the room is going to sing along.",
+      "dur": 8,
+      "emo": {"en": "Confidence", "pt-BR": "Confiança"},
+      "tip": "emotion",
+      "sub": {"en": "Firm and enthusiastic", "pt-BR": "Firme e entusiasmado"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-turn-the-volume-down",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "Turn the volume down, check your levels one more time, and press record only when you feel completely ready.",
+      "dur": 7,
+      "emo": {"en": "Instruction", "pt-BR": "Instrução"},
+      "tip": "speech",
+      "sub": {
+        "en": "Clear and measured, like a studio engineer",
+        "pt-BR": "Claro e pausado, como um técnico de estúdio"
+      },
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-i-asked-for-three",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "I asked for *three* takes, not *thirty*. But thank you anyway, a few of them were actually pretty good.",
+      "dur": 7,
+      "emo": {"en": "Emphasis · humour", "pt-BR": "Ênfase · humor"},
+      "tip": "emphasis",
+      "sub": {"en": "Light irony, contrast three / thirty", "pt-BR": "Ironia leve, contraste three / thirty"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-what-would-you-do",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "What would you do if you could hear your own voice for the very first time, exactly the way others hear it?",
+      "dur": 8,
+      "emo": {"en": "Open question", "pt-BR": "Pergunta aberta"},
+      "tip": "question",
+      "sub": {"en": "Curious, reflective pace", "pt-BR": "Curiosidade, ritmo reflexivo"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-okay-okay-i-admit",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "Okay, okay, I admit it. That last high note was a little ambitious, but at least nobody fell off their chair.",
+      "dur": 8,
+      "emo": {"en": "Joy", "pt-BR": "Alegria"},
+      "tip": "emotion",
+      "sub": {"en": "Laughing at yourself, light voice", "pt-BR": "Rindo de si mesmo, voz leve"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-judge-the-size-of",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "Judge the size of the box, then quickly move the heavy chairs away from the wall before the guests arrive.",
+      "dur": 8,
+      "emo": {"en": "Phonetic sentence", "pt-BR": "Frase fonética"},
+      "tip": "speech",
+      "sub": {"en": "Rich in consonants: dʒ, z, kw, v, tʃ, ð", "pt-BR": "Rica em consoantes: dʒ, z, kw, v, tʃ, ð"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-under-the-old-stone",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "Under the old stone bridge, the river turned silver as the sun finally went down behind the hills.",
+      "dur": 7,
+      "emo": {"en": "Narrative", "pt-BR": "Narrativa"},
+      "tip": "speech",
+      "sub": {"en": "Descriptive, vivid images", "pt-BR": "Descritivo, imagens nítidas"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-do-you-want-the",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "Do you want the red guitar, or would you rather keep the blue one? You can’t take both home tonight.",
+      "dur": 8,
+      "emo": {"en": "Choice ↗↘", "pt-BR": "Escolha ↗↘"},
+      "tip": "question",
+      "sub": {
+        "en": "Alternative: rises on “guitar”, falls on “one”",
+        "pt-BR": "Alternativa: sobe em “guitar”, desce em “one”"
+      },
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-this-is-my-voice",
+      "cat": "speech",
+      "mode": "speech",
+      "text": "This is my voice, this is my sound, and this is exactly how I want the world to hear it from now on.",
+      "dur": 8,
+      "emo": {"en": "Resolve", "pt-BR": "Firmeza"},
+      "tip": "emotion",
+      "sub": {
+        "en": "Strong statement, weight on every “this is”",
+        "pt-BR": "Afirmação forte, cada “this is” com peso"
+      },
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "d-think-that-through",
+      "cat": "phonemes",
+      "mode": "drill",
+      "text": "think · that · through · this · three · those",
+      "dur": 7,
+      "emo": {"en": "English TH", "pt-BR": "TH inglês"},
+      "tip": "th",
+      "sub": {"en": "voiceless θ / voiced ð", "pt-BR": "θ surdo / ð sonoro"},
+      "reg": {"en": "Articulation", "pt-BR": "Articulação"}
+    },
+    {
+      "id": "d-very-well-vine",
+      "cat": "phonemes",
+      "mode": "drill",
+      "text": "very · well · vine · wine · vest · west",
+      "dur": 7,
+      "emo": {"en": "V / W", "pt-BR": "V / W"},
+      "tip": "vw",
+      "sub": {"en": "English minimal pairs", "pt-BR": "Pares mínimos do inglês"},
+      "reg": {"en": "Articulation", "pt-BR": "Articulação"}
+    },
+    {
+      "id": "d-sea-she-zoo",
+      "cat": "phonemes",
+      "mode": "drill",
+      "text": "sea · she · zoo · measure · sip · ship",
+      "dur": 7,
+      "emo": {"en": "Sibilants", "pt-BR": "Sibilantes"},
+      "tip": "sib",
+      "sub": {"en": "s / ʃ / z / ʒ", "pt-BR": "s / ʃ / z / ʒ"},
+      "reg": {"en": "Articulation", "pt-BR": "Articulação"}
+    },
+    {
+      "id": "sp-take-the-quick-path",
+      "cat": "dynamics",
+      "mode": "speech",
+      "text": "Take the quick path to the top, tap the key twice, then track the pattern back to the start.",
+      "dur": 5,
+      "emo": {"en": "Fast and crisp", "pt-BR": "Rápido e articulado"},
+      "tip": "fast",
+      "sub": {"en": "Read fast without swallowing consonants", "pt-BR": "Leia rápido sem engolir consoantes"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-crisp-cables-click-and",
+      "cat": "dynamics",
+      "mode": "speech",
+      "text": "Crisp cables click and crackle, so keep the kick drum tight and the snare right on the beat.",
+      "dur": 5,
+      "emo": {"en": "Fast and crisp", "pt-BR": "Rápido e articulado"},
+      "tip": "fast",
+      "sub": {"en": "Clear t, k, p", "pt-BR": "t, k, p bem marcados"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-check-the-chorus-chop",
+      "cat": "dynamics",
+      "mode": "speech",
+      "text": "Check the chorus, chop the chatter, patch the chain and push the track to the top of the chart.",
+      "dur": 5,
+      "emo": {"en": "Fast and crisp", "pt-BR": "Rápido e articulado"},
+      "tip": "fast",
+      "sub": {"en": "Short, clean ch and tʃ", "pt-BR": "ch e tʃ curtos e limpos"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    },
+    {
+      "id": "sp-six-silver-circuits-spark",
+      "cat": "dynamics",
+      "mode": "speech",
+      "text": "Six silver circuits spark in sequence, splitting signals as the system starts to shift.",
+      "dur": 5,
+      "emo": {"en": "Fast · sibilants", "pt-BR": "Rápido · sibilantes"},
+      "tip": "fast",
+      "sub": {"en": "Short s and sh, steady rhythm", "pt-BR": "s e sh curtos, ritmo firme"},
+      "reg": {"en": "Speech · Middle", "pt-BR": "Fala · Médio"}
+    }
+  ]
+}
