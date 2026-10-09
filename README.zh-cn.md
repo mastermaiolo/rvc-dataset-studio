@@ -6,6 +6,7 @@
 
 [![Release](https://img.shields.io/badge/release-v0.1.0-AD283B?style=flat-square&labelColor=13161A)](https://github.com/mastermaiolo/rvc-dataset-studio)
 [![许可证](https://img.shields.io/badge/许可证-MIT%20%7C%20CC0-E9E5DC?style=flat-square&labelColor=13161A)](LICENSE)
+[![生产环境](https://img.shields.io/badge/生产环境-rvc--dataset--studio.vercel.app-C86D51?style=flat-square&labelColor=13161A)](https://rvc-dataset-studio.vercel.app)
 [![音频引擎](https://img.shields.io/badge/音频引擎-AudioWorklet%20%2B%20YIN-38BDF8?style=flat-square&labelColor=13161A)](https://developer.mozilla.org/en-US/docs/Web/API/AudioWorklet)
 [![隐私安全](https://img.shields.io/badge/隐私-100%25%20纯前端本地%20(零上传)-10B981?style=flat-square&labelColor=13161A)](docs/GUIDE.md#privacy)
 [![目标平台](https://img.shields.io/badge/目标-Applio%20%2F%20RVC%20v2-818CF8?style=flat-square&labelColor=13161A)](https://github.com/IAHispano/Applio)
@@ -25,6 +26,8 @@
 > **纯浏览器端录音棚与声乐特征分析工作站**：精准测量个人音域与舒适音高、自动校准训练曲目键位、主动平衡不同声区（胸声/混声/头声），一键录制无压缩的高质量训练数据集，专为 [**Applio**](https://github.com/IAHispano/Applio) 与 **RVC** 声音模型量身打造。
 >
 > 🔒 **100% 客户端本地隐私保护：** 任何音频均不会离开您的浏览器。无后端服务器、无账号系统、无 Cookie、无行为追踪。支持作为 Progressive Web App (PWA) 完全离线运行。
+>
+> 🔗 **线上生产环境部署：** [rvc-dataset-studio.vercel.app](https://rvc-dataset-studio.vercel.app)
 
 > [!IMPORTANT]
 > **道德声音 AI 契约与使用准则：**
@@ -273,6 +276,13 @@ npm run check
 | `npm run validate:content` | 校验练习题库 JSON 文件是否符合 Schema 规范 |
 | `npm run build` | 编译构建生产环境静态资源到 `dist/` |
 
+### 生产环境部署 (Vercel)
+
+本录音工作室已作为全静态 Web 应用程序部署至 Vercel：[**rvc-dataset-studio.vercel.app**](https://rvc-dataset-studio.vercel.app)。
+
+- **静态托管与自动化构建：** 在 [Vercel](https://vercel.com) 上接入自动化 CI/CD（构建命令 `npm run build`，输出目录 `dist`）。
+- **安全加固与 HTTP 标头 (`vercel.json`):** 实施严格的 Content-Security-Policy (CSP)、`Permissions-Policy: microphone=(self)`、HSTS 以及 Service Worker no-cache 缓存失效策略。
+
 ---
 
 ## 09 / 系统架构与工程目录结构
@@ -378,6 +388,7 @@ rvc-dataset-studio/
 ### 开源传承与社区渊源
 
 - **声学与神经网络工程：** Master Maiolo · MAIOLO / SYSTEMS LAB。
+- **线上生产环境部署：** [rvc-dataset-studio.vercel.app](https://rvc-dataset-studio.vercel.app)。
 - **生态兼容性：** 完全兼容 Applio、RVC v2、SoftVC 及开源语音克隆训练框架。
 - **独立项目说明：** 与 Applio、RVC、Suno 或第三方平台无商业利益关联。
 

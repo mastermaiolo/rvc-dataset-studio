@@ -6,6 +6,7 @@
 
 [![Release](https://img.shields.io/badge/release-v0.1.0-AD283B?style=flat-square&labelColor=13161A)](https://github.com/mastermaiolo/rvc-dataset-studio)
 [![Licence](https://img.shields.io/badge/licence-MIT%20%7C%20CC0-E9E5DC?style=flat-square&labelColor=13161A)](LICENSE)
+[![Production](https://img.shields.io/badge/production-rvc--dataset--studio.vercel.app-C86D51?style=flat-square&labelColor=13161A)](https://rvc-dataset-studio.vercel.app)
 [![Audio Engine](https://img.shields.io/badge/engine-AudioWorklet%20%2B%20YIN-38BDF8?style=flat-square&labelColor=13161A)](https://developer.mozilla.org/en-US/docs/Web/API/AudioWorklet)
 [![Privacy](https://img.shields.io/badge/privacy-100%25%20Client--Side%20(Zero%20Uploads)-10B981?style=flat-square&labelColor=13161A)](docs/GUIDE.md#privacy)
 [![Target](https://img.shields.io/badge/target-Applio%20%2F%20RVC%20v2-818CF8?style=flat-square&labelColor=13161A)](https://github.com/IAHispano/Applio)
@@ -25,6 +26,8 @@
 > **In-browser recording studio and vocal analysis workstation**: measures your personal vocal profile, calibrates exercise tessituras, balances vocal registers, and records clean, uncompressed datasets tailored for training voice models in [**Applio**](https://github.com/IAHispano/Applio) and **RVC**.
 >
 > 🔒 **100% Client-Side Privacy:** No audio ever leaves your browser. Zero backend servers, no accounts, no cookies, no telemetry. Operates entirely offline as a Progressive Web App (PWA).
+>
+> 🔗 **Live Production Deployment:** [rvc-dataset-studio.vercel.app](https://rvc-dataset-studio.vercel.app)
 
 > [!IMPORTANT]
 > **Ethical Voice AI &amp; Ownership Charter:**
@@ -273,6 +276,13 @@ npm run check
 | `npm run validate:content` | Validates exercise JSON files against schema definitions |
 | `npm run build` | Compiles optimized static production bundle to `dist/` |
 
+### Production Deployment
+
+The studio is deployed as a fully static web application on Vercel at [**rvc-dataset-studio.vercel.app**](https://rvc-dataset-studio.vercel.app).
+
+- **Hosting &amp; Build:** Automated CI/CD deployment on [Vercel](https://vercel.com) (`build: npm run build`, output directory `dist`).
+- **Security &amp; Headers (`vercel.json`):** Enforces a strict Content-Security-Policy (CSP), `Permissions-Policy: microphone=(self)`, HSTS, and service worker no-cache rules.
+
 ---
 
 ## 09 / Architecture &amp; Codebase Layout
@@ -378,6 +388,7 @@ Dragging heavy chest voice upward past your natural break zone leads to pitch cr
 ### Open-Source Lineage &amp; Heritage
 
 - **Neural Voice Engineering:** Master Maiolo · MAIOLO / SYSTEMS LAB.
+- **Production Deployment:** [rvc-dataset-studio.vercel.app](https://rvc-dataset-studio.vercel.app).
 - **Ecosystem Compatibility:** Fully compatible with Applio, RVC v2, SoftVC, and open-source voice conversion toolchains.
 - **Independent Project:** Not affiliated with Applio, RVC, Suno, or commercial AI voice platforms.
 

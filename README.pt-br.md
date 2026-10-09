@@ -6,6 +6,7 @@
 
 [![Release](https://img.shields.io/badge/release-v0.1.0-AD283B?style=flat-square&labelColor=13161A)](https://github.com/mastermaiolo/rvc-dataset-studio)
 [![Licença](https://img.shields.io/badge/licen%C3%A7a-MIT%20%7C%20CC0-E9E5DC?style=flat-square&labelColor=13161A)](LICENSE)
+[![Produção](https://img.shields.io/badge/produ%C3%A7%C3%A3o-rvc--dataset--studio.vercel.app-C86D51?style=flat-square&labelColor=13161A)](https://rvc-dataset-studio.vercel.app)
 [![Motor de Áudio](https://img.shields.io/badge/motor-%C3%81udioWorklet%20%2B%20YIN-38BDF8?style=flat-square&labelColor=13161A)](https://developer.mozilla.org/en-US/docs/Web/API/AudioWorklet)
 [![Privacidade](https://img.shields.io/badge/privacidade-100%25%20Local%20(Sem%20Uploads)-10B981?style=flat-square&labelColor=13161A)](docs/GUIA.pt-BR.md#privacidade)
 [![Destino](https://img.shields.io/badge/destino-Applio%20%2F%20RVC%20v2-818CF8?style=flat-square&labelColor=13161A)](https://github.com/IAHispano/Applio)
@@ -25,6 +26,8 @@
 > **Estúdio de gravação e estação de trabalho vocal direto no navegador**: descubra seu perfil vocal, calibre tessituras, equilibre registros vocais e grave datasets limpos e descomprimidos, sob medida para treinar modelos de voz no [**Applio**](https://github.com/IAHispano/Applio) e **RVC**.
 >
 > 🔒 **Privacidade 100% no Cliente:** Nenhum áudio sai do seu navegador. Sem servidores de backend, sem contas, sem cookies e sem telemetria. Funciona offline como Progressive Web App (PWA).
+>
+> 🔗 **Deploy em Produção:** [rvc-dataset-studio.vercel.app](https://rvc-dataset-studio.vercel.app)
 
 > [!IMPORTANT]
 > **Termo de Ética e Uso Responsável de IA:**
@@ -273,6 +276,13 @@ npm run check
 | `npm run validate:content` | Valida arquivos JSON de exercícios contra schemas |
 | `npm run build` | Compila o build estático otimizado em `dist/` |
 
+### Deploy em Produção
+
+O estúdio está publicado como aplicação web totalmente estática na Vercel em [**rvc-dataset-studio.vercel.app**](https://rvc-dataset-studio.vercel.app).
+
+- **Hospedagem &amp; Build:** CI/CD automatizado na [Vercel](https://vercel.com) (`build: npm run build`, saída em `dist`).
+- **Segurança &amp; Cabeçalhos (`vercel.json`):** Aplica Content-Security-Policy (CSP) estrita, `Permissions-Policy: microphone=(self)`, HSTS e desativa cache no service worker.
+
 ---
 
 ## 09 / Arquitetura e Estrutura do Código
@@ -378,6 +388,7 @@ Puxar a voz de peito para além do ponto natural de transição provoca quebras 
 ### Origem e Ecosistema
 
 - **Engenharia Acústica e Neural:** Master Maiolo · MAIOLO / SYSTEMS LAB.
+- **Deploy em Produção:** [rvc-dataset-studio.vercel.app](https://rvc-dataset-studio.vercel.app).
 - **Compatibilidade:** Compatível com Applio, RVC v2, SoftVC e ferramentas abertas de clonagem de voz.
 - **Projeto Independente:** Sem vínculo comercial com Applio, RVC, Suno ou terceiros.
 
