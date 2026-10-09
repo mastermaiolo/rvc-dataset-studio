@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280" width="900" height="280">
+  <defs>
+    <pattern id="arch-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.035"/>
+    </pattern>
+  </defs>
+
+  <rect width="900" height="280" fill="#0B0D0F"/>
+  <rect width="900" height="280" fill="url(#arch-grid)"/>
+  <rect x="0.5" y="0.5" width="899" height="279" fill="none" stroke="#2A2D31" stroke-width="1"/>
+
+  <!-- Section Header -->
+  <g transform="translate(28, 24)">
+    <text x="0" y="0" fill="#B62B32" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" letter-spacing="1.5">09 / ARCHITECTURE &amp; CODEBASE PIPELINE</text>
+    <text x="0" y="15" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="14" font-weight="600">Pure Client-Side Ingestion, Real-Time DSP &amp; Neural Export Flow</text>
+  </g>
+
+  <!-- 4 Blocks connected by arrows -->
+  <!-- Block 1: Audio Capture -->
+  <g transform="translate(28, 62)">
+    <rect width="186" height="180" rx="6" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <path d="M 0 0 L 186 0" stroke="#38BDF8" stroke-width="2"/>
+    <text x="14" y="22" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">STAGE 01 · AUDIO ENGINE</text>
+    <text x="14" y="40" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="11" font-weight="600">Hardware Capture</text>
+
+    <text x="14" y="66" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">• AudioWorklet capture</text>
+    <text x="14" y="82" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">• ScriptProcessor fallback</text>
+    <text x="14" y="98" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">• Raw 48 kHz / 40 kHz</text>
+
+    <rect x="14" y="116" width="158" height="34" rx="4" fill="#0B0D0F" stroke="#2A2D31" stroke-width="0.8"/>
+    <text x="22" y="130" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="8">echoCancellation: false</text>
+    <text x="22" y="142" fill="#E9E5DC" font-family="'JetBrains Mono', monospace" font-size="8">noiseSuppression: false</text>
+
+    <text x="14" y="168" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9">Native Headphone Guide</text>
+  </g>
+
+  <!-- Flow Arrow 1 -->
+  <g transform="translate(218, 145)">
+    <path d="M 0 0 L 14 0" stroke="#38BDF8" stroke-width="1.5"/>
+    <polygon points="14,-3 20,0 14,3" fill="#38BDF8"/>
+  </g>
+
+  <!-- Block 2: DSP & Pitch Engine -->
+  <g transform="translate(242, 62)">
+    <rect width="186" height="180" rx="6" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <path d="M 0 0 L 186 0" stroke="#818CF8" stroke-width="2"/>
+    <text x="14" y="22" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">STAGE 02 · DSP &amp; QC</text>
+    <text x="14" y="40" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="11" font-weight="600">Pitch &amp; Voiced QC</text>
+
+    <text x="14" y="66" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">• YIN fundamental pitch f0</text>
+    <text x="14" y="82" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">• Energy &amp; aperiodicity VAD</text>
+    <text x="14" y="98" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">• LTAS &amp; FFT spectrum</text>
+
+    <rect x="14" y="116" width="158" height="34" rx="4" fill="#0B0D0F" stroke="#2A2D31" stroke-width="0.8"/>
+    <text x="22" y="130" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="8">Live Cents ± Tuner</text>
+    <text x="22" y="142" fill="#E9E5DC" font-family="'JetBrains Mono', monospace" font-size="8">Clip &amp; Noise Guard</text>
+
+    <text x="14" y="168" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9">Sub-sample Precision</text>
+  </g>
+
+  <!-- Flow Arrow 2 -->
+  <g transform="translate(432, 145)">
+    <path d="M 0 0 L 14 0" stroke="#818CF8" stroke-width="1.5"/>
+    <polygon points="14,-3 20,0 14,3" fill="#818CF8"/>
+  </g>
+
+  <!-- Block 3: Persistence & Storage -->
+  <g transform="translate(456, 62)">
+    <rect width="186" height="180" rx="6" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <path d="M 0 0 L 186 0" stroke="#10B981" stroke-width="2"/>
+    <text x="14" y="22" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">STAGE 03 · STORAGE</text>
+    <text x="14" y="40" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="11" font-weight="600">Local Persistence</text>
+
+    <text x="14" y="66" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">• IndexedDB takes storage</text>
+    <text x="14" y="82" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">• localStorage settings</text>
+    <text x="14" y="98" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">• Preact Signals state</text>
+
+    <rect x="14" y="116" width="158" height="34" rx="4" fill="#0B0D0F" stroke="#2A2D31" stroke-width="0.8"/>
+    <text x="22" y="130" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="8">Zero Cloud Retention</text>
+    <text x="22" y="142" fill="#E9E5DC" font-family="'JetBrains Mono', monospace" font-size="8">PWA Offline Caching</text>
+
+    <text x="14" y="168" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9">Private by Architecture</text>
+  </g>
+
+  <!-- Flow Arrow 3 -->
+  <g transform="translate(646, 145)">
+    <path d="M 0 0 L 14 0" stroke="#10B981" stroke-width="1.5"/>
+    <polygon points="14,-3 20,0 14,3" fill="#10B981"/>
+  </g>
+
+  <!-- Block 4: Applio Packaging -->
+  <g transform="translate(670, 62)">
+    <rect width="202" height="180" rx="6" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <path d="M 0 0 L 202 0" stroke="#B62B32" stroke-width="2"/>
+    <text x="14" y="22" fill="#B62B32" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">STAGE 04 · PACKAGING</text>
+    <text x="14" y="40" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="11" font-weight="600">Applio / RVC Bundle</text>
+
+    <text x="14" y="66" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">• fflate client-side ZIP</text>
+    <text x="14" y="82" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">• Lossless 16/24-bit WAV</text>
+    <text x="14" y="98" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">• Continuous master WAV</text>
+
+    <rect x="14" y="116" width="174" height="34" rx="4" fill="#0B0D0F" stroke="#2A2D31" stroke-width="0.8"/>
+    <text x="22" y="130" fill="#B62B32" font-family="'JetBrains Mono', monospace" font-size="8">dataset_info.json</text>
+    <text x="22" y="142" fill="#E9E5DC" font-family="'JetBrains Mono', monospace" font-size="8">RMVPE / Target 48k</text>
+
+    <text x="14" y="168" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9">Applio Import Ready</text>
+  </g>
+</svg>

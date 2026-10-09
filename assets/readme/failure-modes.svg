@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 260" width="900" height="260">
+  <defs>
+    <pattern id="fail-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.035"/>
+    </pattern>
+  </defs>
+
+  <rect width="900" height="260" fill="#0B0D0F"/>
+  <rect width="900" height="260" fill="url(#fail-grid)"/>
+  <rect x="0.5" y="0.5" width="899" height="259" fill="none" stroke="#2A2D31" stroke-width="1"/>
+
+  <!-- Section Header -->
+  <g transform="translate(28, 24)">
+    <text x="0" y="0" fill="#B62B32" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" letter-spacing="1.5">10 / TROUBLESHOOTING &amp; AUDIO FAILURE MODES</text>
+    <text x="0" y="15" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="14" font-weight="600">Acoustic Traps, Browser DSP Pitfalls &amp; Neural Artifact Prevention</text>
+  </g>
+
+  <!-- 4 Failure Mode Cards -->
+  <!-- Trap 1: Digital Clipping -->
+  <g transform="translate(28, 62)">
+    <rect width="198" height="170" rx="6" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <path d="M 0 0 L 198 0" stroke="#F43F5E" stroke-width="2"/>
+    <text x="14" y="22" fill="#F43F5E" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">TRAP 01 · CLIPPING</text>
+    <text x="14" y="42" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="11" font-weight="600">Digital Peak Distortion</text>
+
+    <text x="14" y="66" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">Peaks &gt; -1 dBFS square off</text>
+    <text x="14" y="80" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">the waveform. ContentVec</text>
+    <text x="14" y="94" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">learns harmonic distortion</text>
+    <text x="14" y="108" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">into the voice model.</text>
+
+    <rect x="14" y="126" width="170" height="30" rx="4" fill="#0B0D0F" stroke="#2A2D31" stroke-width="0.8"/>
+    <text x="22" y="140" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="8">FIX: Target -12 to -6 dBFS</text>
+    <text x="22" y="150" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="7.5">Calibrate gain before session</text>
+  </g>
+
+  <!-- Trap 2: OS DSP Enhancements -->
+  <g transform="translate(242, 62)">
+    <rect width="198" height="170" rx="6" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <path d="M 0 0 L 198 0" stroke="#B62B32" stroke-width="2"/>
+    <text x="14" y="22" fill="#B62B32" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">TRAP 02 · BROWSER DSP</text>
+    <text x="14" y="42" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="11" font-weight="600">Forced Noise Gate / AEC</text>
+
+    <text x="14" y="66" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">OS or browser "mic clarity"</text>
+    <text x="14" y="80" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">strips breath formants</text>
+    <text x="14" y="94" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">and creates robotic</text>
+    <text x="14" y="108" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">phase cancelation.</text>
+
+    <rect x="14" y="126" width="170" height="30" rx="4" fill="#0B0D0F" stroke="#2A2D31" stroke-width="0.8"/>
+    <text x="22" y="140" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="8">FIX: Disable OS audio DSP</text>
+    <text x="22" y="150" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="7.5">Turn off mic enhancements</text>
+  </g>
+
+  <!-- Trap 3: Headphone Bleed -->
+  <g transform="translate(456, 62)">
+    <rect width="198" height="170" rx="6" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <path d="M 0 0 L 198 0" stroke="#FBBF24" stroke-width="2"/>
+    <text x="14" y="22" fill="#FBBF24" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">TRAP 03 · ACOUSTIC BLEED</text>
+    <text x="14" y="42" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="11" font-weight="600">Open-Back Bleed</text>
+
+    <text x="14" y="66" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">Reference tone leaking</text>
+    <text x="14" y="80" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">from open-back cans into</text>
+    <text x="14" y="94" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">the mic imprints sine tones</text>
+    <text x="14" y="108" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">into training audio.</text>
+
+    <rect x="14" y="126" width="170" height="30" rx="4" fill="#0B0D0F" stroke="#2A2D31" stroke-width="0.8"/>
+    <text x="22" y="140" fill="#E9E5DC" font-family="'JetBrains Mono', monospace" font-size="8">FIX: Closed-back cans</text>
+    <text x="22" y="150" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="7.5">Keep monitor volume moderate</text>
+  </g>
+
+  <!-- Trap 4: Passaggio Break Cracks -->
+  <g transform="translate(670, 62)">
+    <rect width="202" height="170" rx="6" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <path d="M 0 0 L 202 0" stroke="#818CF8" stroke-width="2"/>
+    <text x="14" y="22" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">TRAP 04 · PASSAGGIO STRAIN</text>
+    <text x="14" y="42" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="11" font-weight="600">Heavy Chest Pulling</text>
+
+    <text x="14" y="66" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">Pulling heavy chest voice</text>
+    <text x="14" y="80" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">past the transition zone</text>
+    <text x="14" y="94" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">yields shrill, nasal neural</text>
+    <text x="14" y="108" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">artifacts &amp; pitch cracks.</text>
+
+    <rect x="14" y="126" width="174" height="30" rx="4" fill="#0B0D0F" stroke="#2A2D31" stroke-width="0.8"/>
+    <text x="22" y="140" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="8">FIX: Vowel narrowing</text>
+    <text x="22" y="150" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="7.5">Use SOVPE &amp; mixed voice</text>
+  </g>
+</svg>

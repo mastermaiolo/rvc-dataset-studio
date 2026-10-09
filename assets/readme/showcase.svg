@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" width="900" height="320">
+  <defs>
+    <pattern id="show-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.035"/>
+    </pattern>
+  </defs>
+
+  <rect width="900" height="320" fill="#0B0D0F"/>
+  <rect width="900" height="320" fill="url(#show-grid)"/>
+  <rect x="0.5" y="0.5" width="899" height="319" fill="none" stroke="#2A2D31" stroke-width="1"/>
+
+  <!-- Section Header -->
+  <g transform="translate(28, 24)">
+    <text x="0" y="0" fill="#B62B32" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" letter-spacing="1.5">04 / STUDIO WORKSPACES &amp; SHOWCASE</text>
+    <text x="0" y="15" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="14" font-weight="600">The 4 Core Panels of the In-Browser Recording Flow</text>
+  </g>
+
+  <!-- 4 Showcase Cards -->
+  <!-- Card 1: Onboarding & Range Test -->
+  <g transform="translate(28, 62)">
+    <rect width="200" height="230" rx="8" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <rect x="0" y="0" width="200" height="3" fill="#38BDF8"/>
+
+    <text x="14" y="24" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">01 · ONBOARDING</text>
+    <text x="14" y="40" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="11" font-weight="600">Voice Range Test</text>
+
+    <!-- Mini Graphic -->
+    <rect x="12" y="52" width="176" height="54" rx="4" fill="#0B0D0F" stroke="#2A2D31" stroke-width="0.8"/>
+    <text x="20" y="70" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8">Siren glide tracking:</text>
+    <path d="M 24 94 Q 60 92 100 70 T 170 60" fill="none" stroke="#38BDF8" stroke-width="2"/>
+    <circle cx="170" cy="60" r="3" fill="#38BDF8"/>
+    <text x="110" y="94" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="7.5">A2 → F4 (Baritone)</text>
+
+    <g transform="translate(14, 120)">
+      <text x="0" y="0" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">• 30-second guided test</text>
+      <text x="0" y="15" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">• Detects tessitura &amp; comfort</text>
+      <text x="0" y="30" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">• Multi-language selection</text>
+      <text x="0" y="45" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">• Ethical ownership pledge</text>
+    </g>
+
+    <text x="14" y="214" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="8">Calibrates all exercise keys</text>
+  </g>
+
+  <!-- Card 2: Studio Prompter & Karaoke -->
+  <g transform="translate(244, 62)">
+    <rect width="200" height="230" rx="8" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <rect x="0" y="0" width="200" height="3" fill="#818CF8"/>
+
+    <text x="14" y="24" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">02 · PROMPTER</text>
+    <text x="14" y="40" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="11" font-weight="600">Karaoke &amp; Tuner</text>
+
+    <!-- Mini Graphic -->
+    <rect x="12" y="52" width="176" height="54" rx="4" fill="#0B0D0F" stroke="#2A2D31" stroke-width="0.8"/>
+    <circle cx="28" cy="74" r="8" fill="#181B20" stroke="#818CF8" stroke-width="1"/>
+    <text x="24" y="77" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="8">3</text>
+    <text x="44" y="70" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="9" font-weight="600">Prepare · Breathe</text>
+    <text x="44" y="86" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="8">Target Note: D4 (293 Hz)</text>
+    <rect x="120" y="60" width="60" height="14" rx="2" fill="#10B981" fill-opacity="0.2"/>
+    <text x="126" y="70" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="7">+1 cent</text>
+
+    <g transform="translate(14, 120)">
+      <text x="0" y="0" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">• Syllable-by-syllable highlight</text>
+      <text x="0" y="15" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">• Headphone count-in tone</text>
+      <text x="0" y="30" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">• Live pitch cents dial</text>
+      <text x="0" y="45" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">• Spacebar toggle control</text>
+    </g>
+
+    <text x="14" y="214" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="8">AudioWorklet zero-latency</text>
+  </g>
+
+  <!-- Card 3: Take Review & QC Card -->
+  <g transform="translate(460, 62)">
+    <rect width="200" height="230" rx="8" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <rect x="0" y="0" width="200" height="3" fill="#10B981"/>
+
+    <text x="14" y="24" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">03 · TAKE QC</text>
+    <text x="14" y="40" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="11" font-weight="600">Quality Review</text>
+
+    <!-- Mini Graphic -->
+    <rect x="12" y="52" width="176" height="54" rx="4" fill="#0B0D0F" stroke="#2A2D31" stroke-width="0.8"/>
+    <path d="M 20 80 Q 35 60 50 80 T 80 80 T 110 65 T 140 85 T 170 80" fill="none" stroke="#10B981" stroke-width="1.5"/>
+    <rect x="20" y="58" width="46" height="12" rx="2" fill="#181B20"/>
+    <text x="24" y="67" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="7.5">CLIP: 0</text>
+    <rect x="70" y="58" width="54" height="12" rx="2" fill="#181B20"/>
+    <text x="74" y="67" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="7.5">-6.2 dBFS</text>
+    <rect x="128" y="58" width="50" height="12" rx="2" fill="#181B20"/>
+    <text x="132" y="67" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="7.5">6.4s VOICED</text>
+
+    <g transform="translate(14, 120)">
+      <text x="0" y="0" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">• Automated clip detection</text>
+      <text x="0" y="15" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">• Noise floor verification</text>
+      <text x="0" y="30" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">• [Enter] accept / [R] redo</text>
+      <text x="0" y="45" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">• Direct IndexedDB save</text>
+    </g>
+
+    <text x="14" y="214" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="8">Ensures pristine dataset</text>
+  </g>
+
+  <!-- Card 4: Range Map & Coverage -->
+  <g transform="translate(676, 62)">
+    <rect width="196" height="230" rx="8" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <rect x="0" y="0" width="196" height="3" fill="#B62B32"/>
+
+    <text x="14" y="24" fill="#B62B32" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">04 · COVERAGE</text>
+    <text x="14" y="40" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="11" font-weight="600">Range Map &amp; Mix</text>
+
+    <!-- Mini Graphic -->
+    <rect x="12" y="52" width="172" height="54" rx="4" fill="#0B0D0F" stroke="#2A2D31" stroke-width="0.8"/>
+    <!-- Pitch semitone vertical bars -->
+    <g transform="translate(20, 62)">
+      <rect x="0" y="18" width="6" height="18" rx="1" fill="#38BDF8"/>
+      <rect x="10" y="12" width="6" height="24" rx="1" fill="#38BDF8"/>
+      <rect x="20" y="6" width="6" height="30" rx="1" fill="#38BDF8"/>
+      <rect x="30" y="2" width="6" height="34" rx="1" fill="#38BDF8"/>
+      <rect x="40" y="8" width="6" height="28" rx="1" fill="#818CF8"/>
+      <rect x="50" y="4" width="6" height="32" rx="1" fill="#818CF8"/>
+      <rect x="60" y="14" width="6" height="22" rx="1" fill="#818CF8"/>
+      <rect x="70" y="20" width="6" height="16" rx="1" fill="#E9E5DC"/>
+      <rect x="80" y="24" width="6" height="12" rx="1" fill="#E9E5DC"/>
+      <rect x="90" y="28" width="6" height="8" rx="1" fill="#8E8A82"/>
+      <text x="104" y="22" fill="#E9E5DC" font-family="'JetBrains Mono', monospace" font-size="8">12.4m</text>
+      <text x="104" y="32" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="7">READY</text>
+    </g>
+
+    <g transform="translate(14, 120)">
+      <text x="0" y="0" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">• Per-semitone voiced time</text>
+      <text x="0" y="15" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">• Highlights missing notes</text>
+      <text x="0" y="30" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">• Custom "My Lyrics" engine</text>
+      <text x="0" y="45" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="9.5">• One-click ZIP export</text>
+    </g>
+
+    <text x="14" y="214" fill="#B62B32" font-family="'JetBrains Mono', monospace" font-size="8">Applio training ready</text>
+  </g>
+</svg>

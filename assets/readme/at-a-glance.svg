@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 260" width="900" height="260">
+  <defs>
+    <pattern id="glance-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.035"/>
+    </pattern>
+  </defs>
+
+  <rect width="900" height="260" fill="#0B0D0F"/>
+  <rect width="900" height="260" fill="url(#glance-grid)"/>
+  <rect x="0.5" y="0.5" width="899" height="259" fill="none" stroke="#2A2D31" stroke-width="1"/>
+
+  <!-- Section Header -->
+  <g transform="translate(28, 24)">
+    <text x="0" y="0" fill="#B62B32" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" letter-spacing="1.5">02 / AT A GLANCE</text>
+    <text x="0" y="15" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="14" font-weight="600">Architectural Core &amp; Vocal Dataset Engineering</text>
+  </g>
+
+  <!-- 4 Pillars Cards -->
+  <!-- Card 1: Zero Server Privacy -->
+  <g transform="translate(28, 62)">
+    <rect width="198" height="170" rx="6" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <rect x="0" y="0" width="198" height="2" fill="#10B981"/>
+    <text x="14" y="24" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">01 · ZERO-SERVER PRIVACY</text>
+    <text x="14" y="44" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="12" font-weight="600">100% Client-Side</text>
+    
+    <g transform="translate(14, 58)">
+      <rect width="170" height="26" rx="4" fill="#0E1218" stroke="#2A2D31" stroke-width="0.8"/>
+      <text x="8" y="17" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="8">No audio leaves browser</text>
+    </g>
+
+    <text x="14" y="106" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">AudioWorklet capture,</text>
+    <text x="14" y="120" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">IndexedDB local storage,</text>
+    <text x="14" y="134" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">no cookies, no trackers.</text>
+    <text x="14" y="154" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="9">Offline PWA ready</text>
+  </g>
+
+  <!-- Card 2: Vocal Calibration -->
+  <g transform="translate(242, 62)">
+    <rect width="198" height="170" rx="6" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <rect x="0" y="0" width="198" height="2" fill="#38BDF8"/>
+    <text x="14" y="24" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">02 · RANGE CALIBRATION</text>
+    <text x="14" y="44" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="12" font-weight="600">Tailored to Any Voice</text>
+    
+    <g transform="translate(14, 58)">
+      <rect width="170" height="26" rx="4" fill="#0E1218" stroke="#2A2D31" stroke-width="0.8"/>
+      <text x="8" y="17" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="8">30s Vocal Test (f0 / LTAS)</text>
+    </g>
+
+    <text x="14" y="106" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">Adapts all exercises</text>
+    <text x="14" y="120" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">to your measured gamut</text>
+    <text x="14" y="134" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">from Bass to Soprano.</text>
+    <text x="14" y="154" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="9">Preserves vocal comfort</text>
+  </g>
+
+  <!-- Card 3: Register & Passaggio Balance -->
+  <g transform="translate(456, 62)">
+    <rect width="198" height="170" rx="6" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <rect x="0" y="0" width="198" height="2" fill="#818CF8"/>
+    <text x="14" y="24" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">03 · PASSAGGIO BALANCE</text>
+    <text x="14" y="44" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="12" font-weight="600">Prevents AI Voice Cracks</text>
+    
+    <g transform="translate(14, 58)">
+      <rect width="170" height="26" rx="4" fill="#0E1218" stroke="#2A2D31" stroke-width="0.8"/>
+      <text x="8" y="17" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="8">Chest / Mix / Head mix</text>
+    </g>
+
+    <text x="14" y="106" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">Actively balances registers</text>
+    <text x="14" y="120" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">so the RVC model transitions</text>
+    <text x="14" y="134" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">smoothly without strain.</text>
+    <text x="14" y="154" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="9">SOVPE &amp; Twang drills</text>
+  </g>
+
+  <!-- Card 4: Applio Bundle Export -->
+  <g transform="translate(670, 62)">
+    <rect width="202" height="170" rx="6" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <rect x="0" y="0" width="202" height="2" fill="#B62B32"/>
+    <text x="14" y="24" fill="#B62B32" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">04 · APPLIO-READY EXPORT</text>
+    <text x="14" y="44" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="12" font-weight="600">Clean Audio Package</text>
+    
+    <g transform="translate(14, 58)">
+      <rect width="174" height="26" rx="4" fill="#0E1218" stroke="#2A2D31" stroke-width="0.8"/>
+      <text x="8" y="17" fill="#B62B32" font-family="'JetBrains Mono', monospace" font-size="8">ZIP + dataset_info.json</text>
+    </g>
+
+    <text x="14" y="106" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">Lossless 16/24-bit WAVs,</text>
+    <text x="14" y="120" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">custom hyperparameters,</text>
+    <text x="14" y="134" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">RMVPE &amp; ContentVec hints.</text>
+    <text x="14" y="154" fill="#B62B32" font-family="'JetBrains Mono', monospace" font-size="9">Automated take metadata</text>
+  </g>
+</svg>

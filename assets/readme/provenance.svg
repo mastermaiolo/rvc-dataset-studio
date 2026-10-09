@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 240" width="900" height="240">
+  <defs>
+    <pattern id="prov-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.035"/>
+    </pattern>
+  </defs>
+
+  <rect width="900" height="240" fill="#0B0D0F"/>
+  <rect width="900" height="240" fill="url(#prov-grid)"/>
+  <rect x="0.5" y="0.5" width="899" height="239" fill="none" stroke="#2A2D31" stroke-width="1"/>
+
+  <!-- Header -->
+  <g transform="translate(28, 24)">
+    <text x="0" y="0" fill="#B62B32" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" letter-spacing="1.5">11 / LINEAGE &amp; PROVENANCE</text>
+    <text x="0" y="15" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="14" font-weight="600">Origins, Open-Source Heritage &amp; Ethical Voice AI Charter</text>
+  </g>
+
+  <!-- 3 Pedigree Blocks -->
+  <!-- Block 1: Voice ML Ecosystem -->
+  <g transform="translate(28, 62)">
+    <rect width="268" height="150" rx="6" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <text x="16" y="24" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">NEURAL ECOSYSTEM</text>
+    <text x="16" y="44" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="12" font-weight="600">Applio &amp; RVC Compatible</text>
+    
+    <text x="16" y="72" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Independent neural recording studio</text>
+    <text x="16" y="90" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Compatible with Applio, RVC v2, SoftVC</text>
+    <text x="16" y="108" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Not affiliated with Suno or third-party AI</text>
+
+    <text x="16" y="132" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="9">Target: RMVPE + ContentVec</text>
+  </g>
+
+  <!-- Block 2: Ethical Charter -->
+  <g transform="translate(316, 62)">
+    <rect width="268" height="150" rx="6" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <text x="16" y="24" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">ETHICAL CHARTER</text>
+    <text x="16" y="44" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="12" font-weight="600">Consent &amp; Data Ownership</text>
+    
+    <text x="16" y="72" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Record only your voice or with explicit consent</text>
+    <text x="16" y="90" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• 100% private: no voice audio leaves browser</text>
+    <text x="16" y="108" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Zero telemetry, zero analytics, zero cookies</text>
+
+    <text x="16" y="132" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="9">Compliance: GDPR Article 6</text>
+  </g>
+
+  <!-- Block 3: Engineering & Licensing -->
+  <g transform="translate(604, 62)">
+    <rect width="268" height="150" rx="6" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <text x="16" y="24" fill="#B62B32" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">LABORATORY / LICENCE</text>
+    <text x="16" y="44" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="12" font-weight="600">MAIOLO / SYSTEMS LAB</text>
+    
+    <text x="16" y="72" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Author: Master Maiolo</text>
+    <text x="16" y="90" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Code under MIT Licence</text>
+    <text x="16" y="108" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Exercise Bank &amp; Schemas under CC0 1.0</text>
+
+    <text x="16" y="132" fill="#B62B32" font-family="'JetBrains Mono', monospace" font-size="9">Open Source · 2026</text>
+  </g>
+</svg>

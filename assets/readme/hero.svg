@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" width="900" height="320">
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.035"/>
+    </pattern>
+    <radialGradient id="vocal-glow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.14"/>
+      <stop offset="50%" stop-color="#818CF8" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#0B0D0F" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wave-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.2"/>
+      <stop offset="30%" stop-color="#38BDF8" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#818CF8" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="meter-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="70%" stop-color="#FBBF24"/>
+      <stop offset="92%" stop-color="#F43F5E"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="900" height="320" fill="#0B0D0F"/>
+  <rect width="900" height="320" fill="url(#grid)"/>
+  <rect width="900" height="320" fill="url(#vocal-glow)"/>
+
+  <!-- Frame Border -->
+  <rect x="0.5" y="0.5" width="899" height="319" fill="none" stroke="#2A2D31" stroke-width="1"/>
+
+  <!-- Top Left Metadata -->
+  <g transform="translate(28, 28)">
+    <circle cx="4" cy="4" r="3" fill="#B62B32"/>
+    <text x="16" y="7" fill="#E9E5DC" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" letter-spacing="1.5">MAIOLO / SYSTEMS LAB · SPEC 06</text>
+    <text x="16" y="22" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="9" letter-spacing="0.8">RVC DATASET STUDIO · IN-BROWSER NEURAL VOICE DATASET WORKSTATION</text>
+  </g>
+
+  <!-- Top Right Kanji Seal -->
+  <g transform="translate(812, 20)">
+    <rect x="0" y="0" width="56" height="38" rx="4" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <text x="14" y="26" fill="#38BDF8" font-family="serif" font-size="22" font-weight="bold">声</text>
+    <text x="36" y="24" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8">DS</text>
+  </g>
+
+  <!-- Central Studio HUD -->
+  <g transform="translate(190, 52)">
+    <!-- DAW Card Background -->
+    <rect width="520" height="216" rx="12" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <rect width="520" height="30" rx="12" fill="#181B20"/>
+    <rect y="18" width="520" height="12" fill="#181B20"/>
+
+    <!-- Window Header -->
+    <circle cx="16" cy="15" r="4" fill="#F43F5E"/>
+    <circle cx="30" cy="15" r="4" fill="#FBBF24"/>
+    <circle cx="44" cy="15" r="4" fill="#10B981"/>
+    <text x="64" y="19" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="10">STUDIO TELEPROMPTER · TAKE 014 / 045</text>
+    <rect x="424" y="7" width="82" height="16" rx="3" fill="#10B981" fill-opacity="0.15" stroke="#10B981" stroke-opacity="0.4" stroke-width="0.8"/>
+    <text x="432" y="19" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="600">● REC · 48 kHz</text>
+
+    <!-- Prompter Text Area -->
+    <g transform="translate(20, 44)">
+      <text x="0" y="16" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="10">PASSAGGIO BRIDGE EXERCISE · VOWEL NARROWING</text>
+      <text x="0" y="40" fill="#E9E5DC" font-family="'Bricolage Grotesque', 'Inter', sans-serif" font-size="19" font-weight="700">"Sustain pure vowel [o] across the break"</text>
+    </g>
+
+    <!-- Waveform & Real-time Pitch Area -->
+    <g transform="translate(20, 114)">
+      <!-- Waveform background panel -->
+      <rect width="480" height="48" rx="6" fill="#0B0D0F" stroke="#2A2D31" stroke-width="0.8"/>
+      
+      <!-- Waveform audio visual -->
+      <path d="M 10 24 Q 25 10 40 24 T 70 24 T 100 8 T 130 38 T 160 14 T 190 32 T 220 6 T 250 40 T 280 12 T 310 36 T 340 18 T 370 28 T 400 20 T 430 24 T 470 24" 
+            fill="none" stroke="url(#wave-grad)" stroke-width="2.2" stroke-linecap="round"/>
+
+      <!-- Pitch indicator line -->
+      <line x1="250" y1="4" x2="250" y2="44" stroke="#10B981" stroke-width="1.5" stroke-dasharray="2,2"/>
+      <circle cx="250" cy="24" r="5" fill="#10B981"/>
+
+      <!-- Live Pitch Badge -->
+      <rect x="350" y="8" width="118" height="20" rx="4" fill="#13161A" stroke="#10B981" stroke-width="0.8"/>
+      <text x="358" y="22" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">C4 · 261.6 Hz (+2¢)</text>
+    </g>
+
+    <!-- Bottom Telemetry Stats Bar -->
+    <g transform="translate(20, 178)">
+      <!-- VU meter bar -->
+      <text x="0" y="12" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="9">IN GAIN</text>
+      <rect x="46" y="3" width="130" height="10" rx="2" fill="#0B0D0F" stroke="#2A2D31" stroke-width="0.8"/>
+      <rect x="48" y="5" width="94" height="6" rx="1" fill="url(#meter-grad)"/>
+      <text x="182" y="12" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">-8.4 dBFS</text>
+
+      <!-- Take QC badges -->
+      <g transform="translate(244, 0)">
+        <rect width="64" height="18" rx="3" fill="#181B20" stroke="#2A2D31" stroke-width="0.8"/>
+        <text x="6" y="12" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="8.5">VOICED 4.8s</text>
+
+        <rect x="70" width="76" height="18" rx="3" fill="#181B20" stroke="#2A2D31" stroke-width="0.8"/>
+        <text x="76" y="12" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="8.5">NOISE &lt; -60dB</text>
+
+        <rect x="152" width="56" height="18" rx="3" fill="#10B981" fill-opacity="0.15" stroke="#10B981" stroke-opacity="0.4" stroke-width="0.8"/>
+        <text x="160" y="12" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="600">QC PASS</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Left Side: Vocal Range Profile Stats -->
+  <g transform="translate(28, 86)">
+    <text x="0" y="0" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600">VOCAL PROFILE</text>
+    <text x="0" y="16" fill="#E9E5DC" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">G2 → A4 (Baritone)</text>
+    <text x="0" y="32" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="9">Passaggio: D4 - F4</text>
+
+    <!-- Mini Piano Roll Register Bars -->
+    <g transform="translate(0, 44)">
+      <text x="0" y="10" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">Chest</text>
+      <rect x="46" y="2" width="70" height="8" rx="2" fill="#38BDF8"/>
+      <text x="122" y="10" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="8.5">32%</text>
+
+      <text x="0" y="24" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">Mixed</text>
+      <rect x="46" y="16" width="65" height="8" rx="2" fill="#818CF8"/>
+      <text x="122" y="24" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="8.5">29%</text>
+
+      <text x="0" y="38" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">Head</text>
+      <rect x="46" y="30" width="45" height="8" rx="2" fill="#E9E5DC"/>
+      <text x="122" y="38" fill="#E9E5DC" font-family="'JetBrains Mono', monospace" font-size="8.5">21%</text>
+
+      <text x="0" y="52" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">Speech</text>
+      <rect x="46" y="44" width="40" height="8" rx="2" fill="#8E8A82"/>
+      <text x="122" y="52" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">18%</text>
+    </g>
+
+    <text x="0" y="124" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="9">✓ REGISTERS BALANCED</text>
+  </g>
+
+  <!-- Right Side: Export & Architecture Highlights -->
+  <g transform="translate(734, 86)">
+    <text x="0" y="0" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600">APPLIO BUNDLE</text>
+    <text x="0" y="16" fill="#E9E5DC" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">WAV PCM 24-bit</text>
+    <text x="0" y="32" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="9">dataset_info.json</text>
+
+    <g transform="translate(0, 44)">
+      <text x="0" y="10" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">• RMVPE tuning</text>
+      <text x="0" y="24" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">• ContentVec embedder</text>
+      <text x="0" y="38" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">• Target: 40k / 48k</text>
+      <text x="0" y="52" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="8.5">• IndexedDB client-side</text>
+    </g>
+
+    <rect x="0" y="108" width="134" height="22" rx="4" fill="#13161A" stroke="#38BDF8" stroke-width="0.8"/>
+    <text x="8" y="122" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="8.5">ZERO SERVER CALLS</text>
+  </g>
+
+  <!-- Bottom Ticker -->
+  <path d="M 0 290 L 900 290" stroke="#2A2D31" stroke-width="1"/>
+  <g transform="translate(28, 306)">
+    <text x="0" y="0" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="9" letter-spacing="1">RVC DATASET STUDIO · YIN PITCH ENGINE · VAD QC · PASSAGGIO BALANCING · APPLIO EXPORT</text>
+    <text x="760" y="0" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">STATUS: PRODUCTION</text>
+  </g>
+</svg>

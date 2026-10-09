@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 260" width="900" height="260">
+  <defs>
+    <pattern id="cap-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.035"/>
+    </pattern>
+  </defs>
+
+  <rect width="900" height="260" fill="#0B0D0F"/>
+  <rect width="900" height="260" fill="url(#cap-grid)"/>
+  <rect x="0.5" y="0.5" width="899" height="259" fill="none" stroke="#2A2D31" stroke-width="1"/>
+
+  <!-- Section Title -->
+  <g transform="translate(28, 24)">
+    <text x="0" y="0" fill="#B62B32" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" letter-spacing="1.5">03 / CAPABILITIES &amp; ENGINEERING</text>
+    <text x="0" y="15" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="14" font-weight="600">Vocal Acoustics, YIN Pitch Tracking &amp; Automated Take Quality Control</text>
+  </g>
+
+  <!-- 3 Main Pillars -->
+  <!-- Col 1: Registers & Passaggio -->
+  <g transform="translate(28, 62)">
+    <rect width="268" height="170" rx="6" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <path d="M 0 0 L 268 0" stroke="#818CF8" stroke-width="2"/>
+    <text x="16" y="24" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">VOCAL ACOUSTICS</text>
+    <text x="16" y="44" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="12" font-weight="600">Registers &amp; Passaggio</text>
+
+    <text x="16" y="72" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Chest voice (25–35%): acoustic body</text>
+    <text x="16" y="90" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Mixed / Passaggio (25–35%): break bridge</text>
+    <text x="16" y="108" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Falsetto / Head (15–25%): cord edge pure tone</text>
+    <text x="16" y="126" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Natural speech (10–20%): formant anchors</text>
+
+    <rect x="16" y="140" width="236" height="18" rx="3" fill="#0B0D0F" stroke="#2A2D31" stroke-width="0.8"/>
+    <text x="24" y="153" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="8.5">SOVPE Sirens &amp; Pharyngeal Twang Drills</text>
+  </g>
+
+  <!-- Col 2: YIN Pitch Tracking -->
+  <g transform="translate(316, 62)">
+    <rect width="268" height="170" rx="6" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <path d="M 0 0 L 268 0" stroke="#38BDF8" stroke-width="2"/>
+    <text x="16" y="24" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">PITCH ANALYSIS</text>
+    <text x="16" y="44" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="12" font-weight="600">YIN Engine &amp; Live Cents</text>
+
+    <text x="16" y="72" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• YIN sub-sample fundamental f0 tracking</text>
+    <text x="16" y="90" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Real-time visual tuner with ±cents feedback</text>
+    <text x="16" y="108" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Reference tone generator for target pitches</text>
+    <text x="16" y="126" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Pitch contours (Mandarin tones, sirens)</text>
+
+    <rect x="16" y="140" width="236" height="18" rx="3" fill="#0B0D0F" stroke="#2A2D31" stroke-width="0.8"/>
+    <text x="24" y="153" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="8.5">Live Prompter Karaoke Integration</text>
+  </g>
+
+  <!-- Col 3: Take Quality Control -->
+  <g transform="translate(604, 62)">
+    <rect width="268" height="170" rx="6" fill="#13161A" stroke="#2A2D31" stroke-width="1"/>
+    <path d="M 0 0 L 268 0" stroke="#10B981" stroke-width="2"/>
+    <text x="16" y="24" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">QUALITY ASSURANCE</text>
+    <text x="16" y="44" fill="#E9E5DC" font-family="'Inter', sans-serif" font-size="12" font-weight="600">Automated Take QC</text>
+
+    <text x="16" y="72" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Voiced time detector via energy &amp; aperiodicity</text>
+    <text x="16" y="90" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Hard digital clipping guard (&gt; -1 dBFS)</text>
+    <text x="16" y="108" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Ambient noise floor monitor (&lt; -24 dBFS)</text>
+    <text x="16" y="126" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Instant keyboard review: [Enter] / [R] redo</text>
+
+    <rect x="16" y="140" width="236" height="18" rx="3" fill="#0B0D0F" stroke="#2A2D31" stroke-width="0.8"/>
+    <text x="24" y="153" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="8.5">Guarantees Clean Neural Training Data</text>
+  </g>
+</svg>
