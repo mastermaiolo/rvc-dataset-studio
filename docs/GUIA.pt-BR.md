@@ -31,7 +31,7 @@ Este guia explica por que o estúdio grava o que grava, como conseguir takes lim
   - **Falsete / Cabeça (15–25%):** vibração de borda das cordas vocais. Garante que notas suaves e agudos flutuantes não colapsem.
   - **Fala natural (10–20%):** referência de formantes e dicção conversacional.
 - **Técnicas para executar notas agudas e passagem:**
-  - *Semi-oclusão (SOVPE):* use os exercícios de sirene no "ng" para equilibrar a pressão de ar antes de abrir vogais.
+  - *Semi-oclusão (SOVT):* use os exercícios de sirene no "ng" para equilibrar a pressão de ar antes de abrir vogais.
   - *Twang e narrowed vowels:* use sílabas como "Nay" ou "Gee" para aproximar as pregas vocais com brilho faríngeo sem empurrar peso do peito.
   - *Estreitamento de vogal:* nos agudos, modifique o "Ah" em direção a "Uh/Oh", e o "Eh" em direção a "Ih", evitando abrir excessivamente a boca na horizontal.
 - **Brilho não é nasalidade:** tampe o nariz durante uma nota sustentada. Se o som mudar, há ar escapando pelas narinas — levante o palato mole (sensação de início de bocejo).

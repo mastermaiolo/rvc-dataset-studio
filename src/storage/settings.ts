@@ -3,6 +3,8 @@ import { ASSUMED_RANGE } from '../analysis/profile';
 import { MIN_SPAN, PASS_OFFSETS, VOICE_PRESETS, type Range } from '../bank/calibrate';
 import type { BitDepth } from '../analysis/wav';
 
+export type ExportSR = 'preserve' | '40000' | '48000';
+
 export interface Settings {
   /** The first-run flow (consent + range) was completed. */
   onboarded: boolean;
@@ -26,6 +28,8 @@ export interface Settings {
   profile: VocalProfile | null;
   /** Speech-language packs in the bank; null = follow the interface language. */
   packs: string[] | null;
+  /** Export sample rate policy: preserve original, or resample to 40k/48k. */
+  exportSR: ExportSR;
 }
 
 export const DEFAULTS: Settings = {
@@ -47,6 +51,7 @@ export const DEFAULTS: Settings = {
   range: { ...ASSUMED_RANGE, src: 'assumed' },
   profile: null,
   packs: null,
+  exportSR: 'preserve',
 };
 
 const KEY = 'rvcds.settings.v1';
@@ -69,6 +74,7 @@ export function sanitize(raw: unknown): Settings {
   if (!s.range || typeof s.range.low !== 'number' || typeof s.range.high !== 'number' || s.range.high - s.range.low < MIN_SPAN) s.range = { ...DEFAULTS.range };
   if (!['assumed', 'preset', 'measured', 'manual'].includes(s.range.src)) s.range = { ...s.range, src: 'manual' };
   if (s.range.src === 'preset' && !(s.range.preset && s.range.preset in VOICE_PRESETS)) s.range = { ...s.range, src: 'manual', preset: undefined };
+  if (s.exportSR !== 'preserve' && s.exportSR !== '40000' && s.exportSR !== '48000') s.exportSR = 'preserve';
   return s;
 }
 

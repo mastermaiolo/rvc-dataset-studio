@@ -1,7 +1,7 @@
 :root{
   color-scheme: dark;
   --bg:#0B0F14; --panel:#121922; --panel2:#18212D; --panel3:#1E2938;
-  --line:#223043; --line2:#2E3E57;
+  --line:#223043; --line2:#6B7F99;
   --text:#E8EDF4; --muted:#8D9AAF; --faint:#7A879C;
   --amber:#F4B042; --amber-hi:#FFD68C; --amber-soft:rgba(244,176,66,.13); --amber-ink:#1C1304;
   --rec:#FF4D5E; --rec-btn:#D42A3C; --ok:#3DD49B; --warn:#F6C75A; --bad:#FF6470;
@@ -49,6 +49,7 @@ button,input,select{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 .btn[disabled]{opacity:.38;cursor:not-allowed}
 .btn-sm{height:32px;padding:0 10px;font-size:12.5px;border-radius:8px}
+@media (hover:none) and (pointer:coarse){.btn-sm{height:44px;padding:0 14px;font-size:13px}}
 .btn-rec{height:54px;padding:0 26px;border-radius:999px;background:var(--rec-btn);border-color:transparent;color:#fff;font-size:16px;font-weight:600;min-width:160px}
 .btn-rec:hover:not([disabled]){background:#E0243A;border-color:transparent}
 .btn-rec .dot{width:12px;height:12px;border-radius:50%;background:#fff}
@@ -98,6 +99,8 @@ kbd{font:500 10.5px/1 var(--f-mono);padding:3px 5px;border-radius:4px;border:1px
 .ex-item.done .st{background:var(--ok);border-color:var(--ok)}
 .ex-item.ext .st{background:transparent;border-color:var(--ok)}
 .ex-item.warnq .st{background:var(--warn);border-color:var(--warn)}
+.ex-item.save-failed .st{background:var(--bad);border-color:var(--bad)}
+.ex-item.save-busy .st{background:var(--amber);border-color:var(--amber);animation:blink 1s steps(2) infinite}
 .ex-item.active{background:var(--amber-soft);color:var(--text)}
 .ex-item.active .no{color:var(--amber)}
 
@@ -215,6 +218,15 @@ kbd{font:500 10.5px/1 var(--f-mono);padding:3px 5px;border-radius:4px;border:1px
 .verdict{margin-top:10px;font-size:12.5px;color:var(--muted)}
 .empty{color:var(--faint);font-size:13px;padding:14px 0 4px}
 .row-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.save-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:600;font-family:var(--f-mono)}
+.save-badge-ok{background:rgba(61,212,155,.15);color:var(--ok);border:1px solid rgba(61,212,155,.3)}
+.save-badge-busy{background:rgba(244,176,66,.15);color:var(--amber);border:1px solid rgba(244,176,66,.3)}
+.save-fail-alert{margin-top:10px;padding:10px 12px;background:rgba(255,100,112,.12);border:1px solid rgba(255,100,112,.35);border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--text);font-size:12.5px}
+.btn-warn{background:var(--rec-btn);border-color:transparent;color:#fff}
+.btn-warn:hover:not([disabled]){background:#e0243a;border-color:transparent}
+.export-progress{margin-top:10px;padding:12px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column;gap:8px}
+.export-progress-head{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text)}
+.mt-2{margin-top:8px}
 
 /* ---------- settings / guide ---------- */
 details.panel>summary{list-style:none;cursor:pointer;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;font-family:var(--f-display);font-weight:700;font-size:14px;border-radius:14px}
@@ -308,3 +320,14 @@ a{color:var(--amber)}
 .foot a{color:var(--muted)}
 /* touch devices have no keyboard shortcuts to show */
 @media (hover:none) and (pointer:coarse){.keys{display:none}}
+
+/* ---------- backup ---------- */
+.backup-storage-card{padding:12px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column;gap:8px;margin-bottom:8px}
+.segbar-sm{height:6px;border-radius:999px;background:var(--panel2);border:1px solid var(--line);display:flex;overflow:hidden;margin:0}
+.segbar-sm>div{height:100%;transition:width .4s ease}
+.backup-preview{margin-top:10px;padding:14px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column;gap:10px}
+.backup-preview-title{font-size:13px;font-weight:700;margin:0;color:var(--text)}
+.backup-summary-list{margin:0;padding:0 0 0 16px;display:flex;flex-direction:column;gap:4px;font-size:13px}
+.backup-summary-list li{list-style:disc}
+.c-warn{color:var(--amber)}
+

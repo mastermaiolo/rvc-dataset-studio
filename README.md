@@ -30,8 +30,25 @@
 > 🔗 **Live Production Deployment:** [rvc-dataset-studio.vercel.app](https://rvc-dataset-studio.vercel.app)
 
 > [!IMPORTANT]
-> **Ethical Voice AI &amp; Ownership Charter:**
 > Only record and clone **your own voice**, or a voice for which you have explicit, verifiable consent. This is an independent open-source tool and is not affiliated with Applio, RVC, Suno, or any commercial music generation platform.
+
+## Benefits
+
+- **Guided recording** — A 30-second vocal test calibrates every exercise to your measured range, tessitura, and register balance.
+- **Automatic dataset quality** — Real-time pitch tracking, clipping guards, and take QC reject contaminated recordings before they reach your dataset.
+- **Local export** — One-click packaging of WAVs, `dataset_info.json`, and a tailored Applio README, all generated in-browser with zero uploads.
+
+## Quick Start
+
+1. **Open the app** — Visit [rvc-dataset-studio.vercel.app](https://rvc-dataset-studio.vercel.app) in a modern browser (Chrome, Edge, or Firefox).
+2. **Complete voice test** — Follow the guided 30-second calibration to measure your vocal profile and register balance.
+3. **Record and export** — Work through the exercise bank, review take QC, and export your dataset ready for Applio training.
+
+## Known Limitations
+
+- **HTTPS required** — Microphone access and PWA features require a secure context (HTTPS or localhost).
+- **Volatile browser storage** — Datasets are stored in IndexedDB; clearing browser data will delete them. Export regularly.
+- **Not affiliated** — Independent open-source project; not endorsed by or affiliated with Applio, RVC, or any commercial platform.
 
 ---
 
@@ -97,7 +114,7 @@ RVC Dataset Studio solves this by monitoring and guiding the target register mix
 - **Natural Speech (10–20%):** Conversational formant anchors and diction articulation.
 
 Pedagogical techniques integrated into the exercise bank include:
-- *Semi-Occluded Vocal Tract Exercises (SOVPE):* "Ng" sirens and lip trills that equalise subglottic air pressure.
+- *Semi-Occluded Vocal Tract Exercises (SOVT):* "Ng" sirens and lip trills that equalise subglottic air pressure.
 - *Pharyngeal Twang:* "Nay" and "Gee" drills that stimulate crisp vocal fold closure without dragging heavy mass.
 - *Vowel Narrowing:* Modifying open vowels toward rounded shapes (e.g. "Ah" $\rightarrow$ "Uh/Oh") near the upper range limit.
 
@@ -369,7 +386,7 @@ If the reference pitch tone leaks out of open-back headphones and into the micro
 <summary><strong>4. Passaggio Vocal Strain &amp; High Note Cracking</strong></summary>
 <br/>
 
-Dragging heavy chest voice upward past your natural break zone leads to pitch cracks, nasality, and thin high notes in your trained model. Use the studio's SOVPE drills ("ng" sirens) and narrow vowels (modify "Ah" toward "Uh/Oh") to bridge smoothly into mixed voice.
+Dragging heavy chest voice upward past your natural break zone leads to pitch cracks, nasality, and thin high notes in your trained model. Use the studio's SOVT drills ("ng" sirens) and narrow vowels (modify "Ah" toward "Uh/Oh") to bridge smoothly into mixed voice.
 
 </details>
 

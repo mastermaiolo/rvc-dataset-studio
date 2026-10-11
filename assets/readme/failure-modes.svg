@@ -81,6 +81,6 @@
 
     <rect x="14" y="126" width="174" height="30" rx="4" fill="#0B0D0F" stroke="#2A2D31" stroke-width="0.8"/>
     <text x="22" y="140" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="8">FIX: Vowel narrowing</text>
-    <text x="22" y="150" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="7.5">Use SOVPE &amp; mixed voice</text>
+    <text x="22" y="150" fill="#8E8A82" font-family="'JetBrains Mono', monospace" font-size="7.5">Use SOVT &amp; mixed voice</text>
   </g>
 </svg>

@@ -29,7 +29,7 @@
     <text x="16" y="126" fill="#8E8A82" font-family="'Inter', sans-serif" font-size="10">• Natural speech (10–20%): formant anchors</text>
 
     <rect x="16" y="140" width="236" height="18" rx="3" fill="#0B0D0F" stroke="#2A2D31" stroke-width="0.8"/>
-    <text x="24" y="153" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="8.5">SOVPE Sirens &amp; Pharyngeal Twang Drills</text>
+    <text x="24" y="153" fill="#818CF8" font-family="'JetBrains Mono', monospace" font-size="8.5">SOVT Sirens &amp; Pharyngeal Twang Drills</text>
   </g>
 
   <!-- Col 2: YIN Pitch Tracking -->

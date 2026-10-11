@@ -87,6 +87,39 @@ export interface RegisterMix {
   suggestedExerciseId: string | null;
 }
 
+export interface DatasetQuality {
+  total: number;
+  saved: number;
+  failed: number;
+  saving: number;
+  qualityOk: number;
+  qualityWarn: number;
+  qualityBad: number;
+  mixedSR: boolean;
+  sampleRates: number[];
+  empty: boolean;
+  rehearsal: boolean;
+  nextAction: 'record' | 'retry-save' | 'export';
+}
+
+export function datasetQuality(takes: Iterable<Take>, _settings: unknown): DatasetQuality {
+  const list = [...takes];
+  const saved = list.filter(t => t.saveStatus === 'saved').length;
+  const failed = list.filter(t => t.saveStatus === 'failed').length;
+  const saving = list.filter(t => t.saveStatus === 'saving').length;
+  const qualityOk = list.filter(t => t.q === 'ok').length;
+  const qualityWarn = list.filter(t => t.q === 'warn').length;
+  const qualityBad = list.filter(t => t.q === 'bad').length;
+  const srs = [...new Set(list.map(t => t.sr).filter((x): x is number => Boolean(x)))];
+  const mixedSR = srs.length > 1;
+  const empty = list.length === 0;
+  const rehearsal = list.some(t => t.external);
+  let nextAction: 'record' | 'retry-save' | 'export' = 'export';
+  if (empty) nextAction = 'record';
+  else if (failed > 0) nextAction = 'retry-save';
+  return { total: list.length, saved, failed, saving, qualityOk, qualityWarn, qualityBad, mixedSR, sampleRates: srs, empty, rehearsal, nextAction };
+}
+
 export function registerMix(takes: Iterable<Take>, bank: Exercise[]): RegisterMix {
   const bankMap = new Map(bank.map(e => [e.id, e]));
   const byRegister: Record<RegisterId, number> = { chest: 0, mixed: 0, falsetto: 0, speech: 0 };

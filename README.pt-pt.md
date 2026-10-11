@@ -97,7 +97,7 @@ O RVC Dataset Studio equilibra a distribuição de registos:
 - **Fala Natural (10–20%):** Âncoras de formantes de conversação e articulação fonética nítida.
 
 Técnicas vocais incorporadas nos exercícios:
-- *Exercícios de Trato Vocal Semi-Ocluído (SOVPE):* Sirenes com "ng" e vibrações labiais para equilibrar a pressão subglótica.
+- *Exercícios de Trato Vocal Semi-Ocluído (SOVT):* Sirenes com "ng" e vibrações labiais para equilibrar a pressão subglótica.
 - *Twang Faríngeo:* Práticas com "Nay" e "Gee" estimulando o fecho nítido das cordas vocais sem arrastar massa muscular excessiva.
 - *Modificação/Estreitamento Vocálico:* Arredondamento de vogais abertas (ex.: "Ah" $\rightarrow$ "Uh/Oh") na aproximação dos agudos.
 
@@ -369,7 +369,7 @@ Se o tom de referência vazar de auscultadores abertos para a cápsula do microf
 <summary><strong>4. Esforço Excessivo no Passaggio e Quebras de Voz</strong></summary>
 <br/>
 
-Forçar a voz de peito para lá da zona de transição gera quebras e sons metálicos estridentes no modelo. Utilize os exercícios SOVPE (sons em "ng") e estreite as vogais abertas (modificando "Ah" para "Uh/Oh") para fazer a transição suave para a voz mista.
+Forçar a voz de peito para lá da zona de transição gera quebras e sons metálicos estridentes no modelo. Utilize os exercícios SOVT (sons em "ng") e estreite as vogais abertas (modificando "Ah" para "Uh/Oh") para fazer a transição suave para a voz mista.
 
 </details>
 

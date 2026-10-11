@@ -37,6 +37,8 @@ export interface Take {
   hist?: Histogram;
   /** Transposition in effect when the take was recorded. */
   tr?: number;
+  /** Persistence status in local storage (IndexedDB). */
+  saveStatus?: 'saved' | 'saving' | 'failed';
 }
 
 export const takeKey = (pass: number, id: string): string => pass + ':' + id;

@@ -36,7 +36,7 @@
   "fast": "Fast but clean: short, firm consonants (t, k, p, ch, s). That is what keeps the voice from sounding “mushy” in fast songs.",
   "lyric": "A line from your lyrics. Sing it in your range with the song’s intent; the melody here is only a guide.",
   "lyriczh": "A line from your Mandarin lyrics. Mark the tones clearly: this gives the model’s index Mandarin phonemes in your own voice.",
-  "ngsiren": "Semi-occluded vocal tract (SOVPE): mouth almost closed, sound vibrating in nose and lips like the end of “sing”. Slide continuously without steps — it connects chest, mixed and falsetto without tension.",
+  "ngsiren": "Semi-occluded vocal tract (SOVT): mouth almost closed, sound vibrating in nose and lips like the end of “sing”. Slide continuously without steps — it connects chest, mixed and falsetto without tension.",
   "nay": "Bratty “Nay” with forward, brassy placement like teasing someone. Narrows the epilarynx, helping the vocal cords close cleanly without muscle force. Moderate volume, never shout.",
   "gee": "Crisp “Gee” (gui). The firm “G” consonant prompts immediate clean cord closure, while the narrow vowel prevents the throat from tightening as pitch rises.",
   "mixsus": "Mixed voice: less chest weight, more body than falsetto. Moderate volume; if your larynx wants to rise, back off and lighten the vowel.",

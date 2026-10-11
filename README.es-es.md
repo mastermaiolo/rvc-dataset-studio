@@ -97,7 +97,7 @@ RVC Dataset Studio equilibra activamente la distribución de registros:
 - **Habla Natural (10–20%):** Anclajes de formantes conversacionales y dicción articulada.
 
 Técnicas vocales integradas en el repertorio:
-- *Ejercicios de Tracto Vocal Semiocluido (SOVPE):* Sirenas en "ng" y vibraciones labiales para regular la presión subglótica.
+- *Ejercicios de Tracto Vocal Semiocluido (SOVT):* Sirenas en "ng" y vibraciones labiales para regular la presión subglótica.
 - *Twang Faríngeo:* Prácticas con "Nay" y "Gee" que promueven el cierre firme de cuerdas sin sobrecargar la musculatura.
 - *Modificación/Estrechamiento Vocálico:* Redondear vocales abiertas (ej.: "Ah" $\rightarrow$ "Uh/Oh") al aproximarse a los agudos.
 
@@ -369,7 +369,7 @@ Si el tono de referencia se escapa de unos auriculares abiertos hacia el micróf
 <summary><strong>4. Esfuerzo Excesivo en el Passaggio y Rotura de Voz</strong></summary>
 <br/>
 
-Tirar de la voz de pecho por encima de la zona natural de transición provoca quiebres y timbre estridente en el modelo final. Recurre a los ejercicios con SOVPE (sirenas en "ng") y estrecha las vocales abiertas (variando "Ah" hacia "Uh/Oh") para pasar de forma gradual a la voz mixta.
+Tirar de la voz de pecho por encima de la zona natural de transición provoca quiebres y timbre estridente en el modelo final. Recurre a los ejercicios con SOVT (sirenas en "ng") y estrecha las vocales abiertas (variando "Ah" hacia "Uh/Oh") para pasar de forma gradual a la voz mixta.
 
 </details>
 

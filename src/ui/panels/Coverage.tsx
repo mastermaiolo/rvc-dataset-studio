@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
-import { coverage, registerMix, REGISTER_TARGETS, summarize, tuningClass } from '../../analysis/coverage';
+import { coverage, datasetQuality, registerMix, REGISTER_TARGETS, summarize, tuningClass } from '../../analysis/coverage';
 import { bank, settings, span, takes, update } from '../../app/store';
 import type { RegisterId } from '../../bank/types';
 import { locale, num, t, type MessageKey } from '../../i18n';
@@ -95,6 +95,7 @@ export function CoveragePanel() {
   };
 
   const mix = useMemo(() => registerMix(takes.value.values(), bank.value), [takes.value, bank.value]);
+  const dq = useMemo(() => datasetQuality(takes.value.values(), settings.value), [takes.value, settings.value]);
   const registers: RegisterId[] = ['chest', 'mixed', 'falsetto', 'speech'];
 
   return (
@@ -121,6 +122,19 @@ export function CoveragePanel() {
         />
         <div class="note mono" aria-live="polite">{focus != null ? readout(focus) : t('coverage.hover')}</div>
         <p class="note">{out.join(' ')}</p>
+        <div class="mix-section">
+          <h3 class="mix-h">{t('coverage.dashboard')}</h3>
+          <div class="stats">
+            <div class="stat"><div class="v">{dq.total}</div><div class="k">{t('export.takes')}</div></div>
+            <div class="stat"><div class="v">{dq.qualityOk}</div><div class="k">{t('coverage.quality', { ok: dq.qualityOk.toString(), warn: dq.qualityWarn.toString(), bad: dq.qualityBad.toString() })}</div></div>
+            <div class="stat"><div class="v">{dq.saved}</div><div class="k">{t('coverage.stats', { total: dq.total.toString(), saved: dq.saved.toString(), failed: dq.failed.toString() })}</div></div>
+          </div>
+          {dq.empty && <p class="note">{t('coverage.nextRecord')}</p>}
+          {!dq.empty && dq.failed > 0 && <p class="note c-warn">{t('coverage.nextRetry', { n: dq.failed.toString() })}</p>}
+          {!dq.empty && dq.failed === 0 && <p class="note c-ok">{t('coverage.nextExport')}</p>}
+          {dq.rehearsal && <p class="note c-warn">{t('coverage.rehearsal')}</p>}
+          {dq.mixedSR && <p class="note c-warn">{t('coverage.mixedSR', { list: dq.sampleRates.join(', ') })}</p>}
+        </div>
         <div class="mix-section">
           <h3 class="mix-h">{t('coverage.mixTitle')}</h3>
           <p class="mix-help">{t('coverage.mixHelp')}</p>

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { takeKey } from '../../analysis/qc';
-import { clearSession, downloadSession, downloadZip } from '../../app/controller';
-import { bank, dbOk, mic, settings, takes, totals } from '../../app/store';
+import { cancelExport, clearSession, downloadSession, downloadZip } from '../../app/controller';
+import { bank, dbOk, exportProgress, mic, sessionSkipped, settings, takes, totals, update } from '../../app/store';
 import { engine } from '../../audio/engine';
 import { num, t } from '../../i18n';
 import { clock } from '../../lib/music';
@@ -16,6 +16,7 @@ export function ExportPanel() {
   const timer = useRef<ReturnType<typeof setTimeout>>();
   useEffect(() => () => clearTimeout(timer.current), []);
   void mic.value; // sample rate label updates once the mic is on
+  void sessionSkipped.value; // re-render when session export skips files
 
   const passDone = bank.value.every(e => takes.value.has(takeKey(S.pass, e.id)));
   let note = dbOk.value ? t('export.stored') : t('export.notStored');
@@ -59,13 +60,61 @@ export function ExportPanel() {
           <div class="stat"><div class="v">{num(v / 60)}</div><div class="k">{t('export.minutes')}</div></div>
           <div class="stat"><div class="v">{real.length ? num(real.reduce((a, x) => a + x.voiced, 0) / real.length) : '—'}</div><div class="k">{t('export.avg')}</div></div>
         </div>
+        <div class="field">
+          <label for="setExportSR">{t('export.targetSR')}</label>
+          <select id="setExportSR" value={S.exportSR} onChange={e => update({ exportSR: (e.target as HTMLSelectElement).value as 'preserve' | '40000' | '48000' })}>
+            <option value="preserve">{t('export.targetSRPreserve')}</option>
+            <option value="40000">{t('export.targetSR40k')}</option>
+            <option value="48000">{t('export.targetSR48k')}</option>
+          </select>
+          <span class="hint">{t('export.targetSRHint')}</span>
+        </div>
+        {(() => {
+          const srs = [...new Set(real.map(x => x.sr).filter((x): x is number => Boolean(x)))];
+          if (srs.length <= 1 || S.exportSR === 'preserve') return null;
+          const target = Number(S.exportSR);
+          const mismatched = real.filter(x => x.sr !== target);
+          if (!mismatched.length) return null;
+          const list = mismatched.map(x => x.sr!.toString()).join(', ');
+          return (
+            <p class="note c-warn" role="alert">
+              {t('export.srMismatch', { list, target: target.toString() })}
+            </p>
+          );
+        })()}
         <div class="flex flex-col gap-2">
-          <button class="btn" type="button" disabled={!real.length} onClick={() => void downloadZip()}>{t('export.zip')}</button>
-          <button class="btn" type="button" disabled={!real.length} onClick={downloadSession}>{t('export.session')}</button>
-          <button class={'btn btn-sm' + (armed ? ' active' : '')} type="button" onClick={onClear} aria-live="polite">
+          <button class="btn" type="button" disabled={!real.length || exportProgress.value.active} onClick={() => void downloadZip()}>{t('export.zip')}</button>
+          <button class="btn" type="button" disabled={!real.length || exportProgress.value.active} onClick={downloadSession}>{t('export.session')}</button>
+          <button class={'btn btn-sm' + (armed ? ' active' : '')} type="button" disabled={exportProgress.value.active} onClick={onClear} aria-live="polite">
             {armed ? t('export.clearConfirm') : t('export.clear')}
           </button>
         </div>
+        {sessionSkipped.value.length > 0 && (
+          <div class="save-fail-alert" role="alert">
+            <span>{t('export.sessionSkipped', { n: sessionSkipped.value.length.toString() })}</span>
+            <span class="mono" style={{ fontSize: '11px' }}>{sessionSkipped.value.join(', ')}</span>
+          </div>
+        )}
+        {exportProgress.value.active && (
+          <div class="export-progress" role="status" aria-live="polite">
+            <div class="export-progress-head">
+              <span class="mono">
+                {t('export.progress', {
+                  cur: exportProgress.value.current,
+                  total: exportProgress.value.total,
+                  file: exportProgress.value.currentFile || '…',
+                })}
+              </span>
+              <span class="mono">{exportProgress.value.percent}%</span>
+            </div>
+            <div class="segbar">
+              <div style={{ width: `${exportProgress.value.percent}%`, background: 'var(--amber)' }} />
+            </div>
+            <button class="btn btn-sm btn-warn mt-2" type="button" onClick={cancelExport}>
+              {t('export.cancel')}
+            </button>
+          </div>
+        )}
         <p class="note">{note}</p>
         <p class="note c-ok">{t('export.applioInfo')}</p>
         {storage && (

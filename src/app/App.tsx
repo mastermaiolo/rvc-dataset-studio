@@ -10,6 +10,7 @@ import { TunerPanel } from '../ui/panels/Tuner';
 import { ReviewPanel } from '../ui/panels/Review';
 import { CoveragePanel } from '../ui/panels/Coverage';
 import { ExportPanel } from '../ui/panels/Export';
+import { BackupPanel } from '../ui/panels/Backup';
 import { SettingsPanel } from '../ui/panels/Settings';
 import { GuidePanel } from '../ui/panels/Guide';
 import { Rich } from '../ui/rich';
@@ -66,6 +67,7 @@ export function App() {
               <ReviewPanel />
               <CoveragePanel />
               <LyricsPanel />
+              <BackupPanel />
               <ExportPanel />
               <SettingsPanel />
               <GuidePanel />
