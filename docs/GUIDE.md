@@ -31,7 +31,7 @@ This guide covers why the studio records what it records, how to get clean takes
   - **Falsetto / Head voice (15–25%):** pure cord edge vibration. Prevents high soft notes from collapsing.
   - **Natural speech (10–20%):** conversational formant and diction anchors.
 - **Techniques to navigate high notes without straining:**
-  - *Semi-occluded vocal tract (SOVPE):* use "ng" sirens and gentle trills to balance subglottic air pressure before opening vowels.
+  - *Semi-occluded vocal tract (SOVT):* use "ng" sirens and gentle trills to balance subglottic air pressure before opening vowels.
   - *Pharyngeal twang:* practice with "Nay" or "Gee" to encourage clean cord closure without dragging heavy chest mass upward.
   - *Vowel narrowing:* round and narrow open vowels towards the top of your range (e.g. modify "Ah" toward "Uh/Oh") rather than spreading horizontally.
 - **Brightness is not nasality:** pinch your nose while singing a sustained vowel. If the tone changes, lift the soft palate (think of a yawn).

@@ -128,6 +128,24 @@ export function toast(text: string): void {
   toastMsg.value = { text, id: ++toastId };
 }
 
+export interface ExportState {
+  active: boolean;
+  current: number;
+  total: number;
+  currentFile: string;
+  percent: number;
+}
+export const exportProgress = signal<ExportState>({
+  active: false,
+  current: 0,
+  total: 0,
+  currentFile: '',
+  percent: 0,
+});
+
+/** Files skipped in the last session WAV export (sample rate mismatch). */
+export const sessionSkipped = signal<string[]>([]);
+
 /* ---------------- totals ---------------- */
 
 export const totals = computed(() => {

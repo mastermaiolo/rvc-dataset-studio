@@ -52,11 +52,12 @@ export function Navigator() {
                 {items.map(({ e, i }) => {
                   const take = tk.get(takeKey(S.pass, e.id));
                   const cls = !take ? '' : take.external ? ' ext' : take.q === 'warn' || take.q === 'bad' ? ' warnq' : ' done';
+                  const saveCls = take?.saveStatus === 'failed' ? ' save-failed' : take?.saveStatus === 'saving' ? ' save-busy' : '';
                   return (
                     <li key={e.id}>
                       <button
                         type="button"
-                        class={'ex-item' + cls + (i === cur ? ' active' : '')}
+                        class={'ex-item' + cls + saveCls + (i === cur ? ' active' : '')}
                         data-i={i}
                         aria-current={i === cur ? 'true' : undefined}
                         onClick={() => go(i)}

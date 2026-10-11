@@ -16,6 +16,7 @@
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:e2e": "playwright test",
     "validate:content": "node scripts/validate-content.mjs",
     "check": "npm run lint && npm run typecheck && npm run validate:content && npm test && npm run build"
   },
@@ -29,12 +30,14 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.64.0",
     "@preact/preset-vite": "^2.10.6",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^22.20.4",
     "ajv": "^8.20.0",
     "eslint": "^10.11.0",
     "globals": "^17.12.0",
+    "jsdom": "^30.1.2",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0",
     "typescript-eslint": "^8.70.1",

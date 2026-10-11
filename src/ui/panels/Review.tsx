@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'preact/hooks';
 import { qcList, worst, type QCItem, type Take } from '../../analysis/qc';
-import { downloadTake, shownTake, togglePlay } from '../../app/controller';
+import { downloadTake, retrySaveTake, shownTake, togglePlay } from '../../app/controller';
 import { current, pending, playing, settings, takes } from '../../app/store';
 import { num, t } from '../../i18n';
 import { midiToNote, signedCents } from '../../lib/music';
@@ -61,10 +61,26 @@ export function ReviewPanel() {
     <section class="panel" aria-labelledby="h-review">
       <div class="phead">
         <h2 id="h-review">{pending.value ? t('review.pending') : tk ? t('review.accepted') : t('review.title')}</h2>
-        <span class="label">{tk ? takeFileName(tk) : ''}</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          {tk?.saveStatus === 'saved' && (
+            <span class="save-badge save-badge-ok">{t('review.savedLocal')}</span>
+          )}
+          {tk?.saveStatus === 'saving' && (
+            <span class="save-badge save-badge-busy">{t('review.savingLocal')}</span>
+          )}
+          <span class="label">{tk ? takeFileName(tk) : ''}</span>
+        </div>
       </div>
       <div class="pbody">
         <canvas class="wave" ref={ref} hidden={!tk?.pcm} role="img" aria-label={t('review.waveAria')} />
+        {tk?.saveStatus === 'failed' && (
+          <div class="save-fail-alert" role="alert">
+            <span>{t('review.saveFailWarning')}</span>
+            <button class="btn btn-sm btn-warn" type="button" onClick={() => void retrySaveTake(tk)}>
+              {t('review.retrySave')}
+            </button>
+          </div>
+        )}
         {!tk && <div class="empty">{t('review.empty')}</div>}
         {tk && (
           <>

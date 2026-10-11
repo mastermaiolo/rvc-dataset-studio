@@ -5,17 +5,23 @@ import { analyzeTake, qcList, takeKey, worst, type Take } from '../analysis/qc';
 import { rmsDb, vadThreshold } from '../analysis/vad';
 import { engine } from '../audio/engine';
 import { MIN_SPAN, presetRange, type VoiceId } from '../bank/calibrate';
-import { parseLines } from '../lyrics/generate';
+import { parseLines, saveLyrics } from '../lyrics/generate';
 import type { LyricLang } from '../lyrics/syllables';
 import type { Exercise } from '../bank/types';
-import { datasetEntries, buildZip, download, sessionWav, sortTakes, takeFileName } from '../export/dataset';
+import { download, sessionWav, sortTakes, streamDatasetZip, takeFileName } from '../export/dataset';
 import { locale, lt, num, t, tList, tn } from '../i18n';
 import { dB, midiToNote, signed } from '../lib/music';
 import { allTakes, clearTakes, dbAvailable, deleteTake, openDB, putTake, requestPersistence } from '../storage/idb';
+import { saveSettings } from '../storage/settings';
+import {
+  BACKUP_VERSION, deserializeTake, parseBackup,
+  previewRestore, serializeTake, type ProjectBackup, type RestorePreview,
+} from '../storage/backup';
+
 import { resetKaraoke, runClock, startLiveLoop, updateHold, updateKaraoke } from './live';
 import {
-  bank, countN, current, packs, dbOk, diag, diagMsg, idx, lyrics, mic, micCheck, noise, pending, phase, playing, refPlaying,
-  settings, takes, toast, totals, tr, update,
+  bank, countN, current, packs, dbOk, diag, diagMsg, exportProgress, idx, lyrics, mic, micCheck, noise, pending, phase, playing, refPlaying,
+  sessionSkipped, settings, takes, toast, totals, tr, update,
 } from './store';
 
 /** Count-in before the take starts, and extra recording after the nominal end (seconds). */
@@ -192,6 +198,7 @@ export async function accept(): Promise<void> {
   const tk = pending.value;
   if (!tk || run) return;
   tk.q = worst(qcList(tk));
+  tk.saveStatus = 'saving';
   const next = new Map(takes.value);
   next.set(tk.key, tk);
   batch(() => {
@@ -205,7 +212,48 @@ export async function accept(): Promise<void> {
   }
   // advance before awaiting the save, so a quick Space after Enter records the next exercise
   if (settings.value.advance && idx.value < bank.value.length - 1) go(idx.value + 1);
-  if (dbAvailable() && !(await putTake(tk))) toast(t('toast.saveFail'));
+  if (dbAvailable()) {
+    try {
+      const ok = await putTake(tk);
+      tk.saveStatus = ok ? 'saved' : 'failed';
+      if (!ok) toast(t('toast.saveFail'));
+    } catch {
+      tk.saveStatus = 'failed';
+      toast(t('toast.saveFail'));
+    }
+    const updated = new Map(takes.value);
+    updated.set(tk.key, { ...tk });
+    takes.value = updated;
+  }
+}
+
+export async function retrySaveTake(tk: Take): Promise<boolean> {
+  if (!dbAvailable()) {
+    toast(t('toast.saveFail'));
+    return false;
+  }
+  tk.saveStatus = 'saving';
+  const next = new Map(takes.value);
+  next.set(tk.key, { ...tk });
+  takes.value = next;
+  try {
+    const ok = await putTake(tk);
+    tk.saveStatus = ok ? 'saved' : 'failed';
+    const updated = new Map(takes.value);
+    updated.set(tk.key, { ...tk });
+    takes.value = updated;
+    if (ok) {
+      toast(t('toast.savedTake'));
+      return true;
+    }
+  } catch {
+    tk.saveStatus = 'failed';
+    const updated = new Map(takes.value);
+    updated.set(tk.key, { ...tk });
+    takes.value = updated;
+  }
+  toast(t('toast.saveFail'));
+  return false;
 }
 
 export function redo(): void {
@@ -239,7 +287,26 @@ export function setPass(pass: number): void {
 
 /* ---------------- noise floor ---------------- */
 
-const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
+const sleep = (ms: number, signal?: AbortSignal) =>
+  new Promise<void>((resolve, reject) => {
+    if (signal?.aborted) { reject(new DOMException('Aborted', 'AbortError')); return; }
+    const timer = setTimeout(() => {
+      signal?.removeEventListener('abort', onAbort);
+      resolve();
+    }, ms);
+    const onAbort = () => {
+      clearTimeout(timer);
+      reject(new DOMException('Aborted', 'AbortError'));
+    };
+    signal?.addEventListener('abort', onAbort, { once: true });
+  });
+
+let noiseAbort: AbortController | null = null;
+
+export function cancelNoise(): void {
+  noiseAbort?.abort();
+  noiseAbort = null;
+}
 
 export async function measureNoise(): Promise<void> {
   if (run || noise.value.busy || diag.value) return;
@@ -247,15 +314,37 @@ export async function measureNoise(): Promise<void> {
     noise.value = { busy: false, count: 0, error: 'needMic' };
     return;
   }
+  const ac = new AbortController();
+  noiseAbort = ac;
   noise.value = { busy: true, count: 3 };
   engine.startCapture();
-  for (let i = 3; i > 0; i--) {
-    noise.value = { busy: true, count: i };
-    await sleep(1000);
+  try {
+    for (let i = 3; i > 0; i--) {
+      if (ac.signal.aborted) throw new DOMException('Aborted', 'AbortError');
+      noise.value = { busy: true, count: i };
+      await sleep(1000, ac.signal);
+    }
+    const x = await engine.stopCapture();
+    update({ noiseDb: Math.round(rmsDb(x)) });
+  } catch (err: unknown) {
+    if (err instanceof DOMException && err.name === 'AbortError') {
+      await engine.stopCapture().catch(() => {});
+      noise.value = { busy: false, count: 0 };
+      return;
+    }
+    await engine.stopCapture().catch(() => {});
+    noise.value = { busy: false, count: 0, error: 'fail' };
+  } finally {
+    noiseAbort = null;
+    noise.value = { ...noise.value, busy: false, count: 0 };
   }
-  const x = await engine.stopCapture();
-  update({ noiseDb: Math.round(rmsDb(x)) });
-  noise.value = { busy: false, count: 0 };
+}
+
+let micCheckAbort: AbortController | null = null;
+
+export function cancelMicCheck(): void {
+  micCheckAbort?.abort();
+  micCheckAbort = null;
 }
 
 export async function runMicCheck(): Promise<void> {
@@ -264,39 +353,57 @@ export async function runMicCheck(): Promise<void> {
     micCheck.value = { ...micCheck.value, status: 'idle', error: 'needMic' };
     return;
   }
+  const ac = new AbortController();
+  micCheckAbort = ac;
   micCheck.value = { status: 'measuring', count: 5, peakDb: null, rmsDb: null, clipped: false, verdict: null, error: undefined };
   engine.startCapture();
-  for (let i = 5; i > 0; i--) {
-    micCheck.value = { ...micCheck.value, count: i };
-    await sleep(1000);
+  try {
+    for (let i = 5; i > 0; i--) {
+      if (ac.signal.aborted) throw new DOMException('Aborted', 'AbortError');
+      micCheck.value = { ...micCheck.value, count: i };
+      await sleep(1000, ac.signal);
+    }
+    const x = await engine.stopCapture();
+    let maxAbs = 0;
+    for (let i = 0; i < x.length; i++) {
+      const v = Math.abs(x[i]);
+      if (v > maxAbs) maxAbs = v;
+    }
+    const peakDb = dB(maxAbs);
+    const rms = rmsDb(x);
+    const clipped = maxAbs >= 0.99 || peakDb >= -0.5;
+    let verdict: 'clipping' | 'optimal' | 'acceptable' | 'low';
+    if (clipped || peakDb > -1) {
+      verdict = 'clipping';
+    } else if (peakDb >= -14 && peakDb <= -4) {
+      verdict = 'optimal';
+    } else if (peakDb >= -24 && peakDb < -14) {
+      verdict = 'acceptable';
+    } else {
+      verdict = 'low';
+    }
+    micCheck.value = {
+      status: 'done',
+      count: 0,
+      peakDb: Math.round(peakDb),
+      rmsDb: Math.round(rms),
+      clipped,
+      verdict,
+    };
+  } catch (err: unknown) {
+    if (err instanceof DOMException && err.name === 'AbortError') {
+      await engine.stopCapture().catch(() => {});
+      micCheck.value = { ...micCheck.value, status: 'idle', count: 0 };
+      return;
+    }
+    await engine.stopCapture().catch(() => {});
+    micCheck.value = { ...micCheck.value, status: 'idle', error: 'fail' };
+  } finally {
+    micCheckAbort = null;
+    if (micCheck.value.status === 'measuring') {
+      micCheck.value = { ...micCheck.value, status: 'idle', count: 0 };
+    }
   }
-  const x = await engine.stopCapture();
-  let maxAbs = 0;
-  for (let i = 0; i < x.length; i++) {
-    const v = Math.abs(x[i]);
-    if (v > maxAbs) maxAbs = v;
-  }
-  const peakDb = dB(maxAbs);
-  const rms = rmsDb(x);
-  const clipped = maxAbs >= 0.99 || peakDb >= -0.5;
-  let verdict: 'clipping' | 'optimal' | 'acceptable' | 'low';
-  if (clipped || peakDb > -1) {
-    verdict = 'clipping';
-  } else if (peakDb >= -14 && peakDb <= -4) {
-    verdict = 'optimal';
-  } else if (peakDb >= -24 && peakDb < -14) {
-    verdict = 'acceptable';
-  } else {
-    verdict = 'low';
-  }
-  micCheck.value = {
-    status: 'done',
-    count: 0,
-    peakDb: Math.round(peakDb),
-    rmsDb: Math.round(rms),
-    clipped,
-    verdict,
-  };
 }
 
 /* ---------------- voice test ---------------- */
@@ -466,7 +573,10 @@ function currentTakes(): Take[] {
 function applioDatasetInfo(): string {
   const S = settings.value;
   const real = currentTakes().filter(x => !x.external);
-  const sr = real.find(x => x.sr)?.sr ?? engine.sampleRate;
+  const sampleRates = [...new Set(real.map(x => x.sr).filter((x): x is number => Boolean(x)))];
+  const sourceSr = real.find(x => x.sr)?.sr ?? engine.sampleRate;
+  // Effective output SR: explicit target wins, otherwise the source rate
+  const outputSr = S.exportSR === 'preserve' ? sourceSr : Number(S.exportSR);
   const mix = registerMix(real, bank.value);
   const info = {
     name: 'rvc_dataset',
@@ -474,7 +584,13 @@ function applioDatasetInfo(): string {
     version: '1.0.0',
     date: new Date().toISOString(),
     audio_format: {
-      sample_rate: sr,
+      output_sample_rate: outputSr,
+      output_sample_rates: S.exportSR === 'preserve'
+        ? (sampleRates.length ? sampleRates : [sourceSr])
+        : [outputSr],
+      source_sample_rates: sampleRates.length ? sampleRates : [sourceSr],
+      resampled: S.exportSR !== 'preserve' && sourceSr !== outputSr,
+      export_policy: S.exportSR,
       channels: 1,
       bit_depth: S.bits,
     },
@@ -496,8 +612,8 @@ function applioDatasetInfo(): string {
     applio_recommended_settings: {
       pitch_guidance: true,
       f0_detector: 'rmvpe',
-      recommended_pretrain: 'Ov2Super (or Titan / Snowie)',
-      sample_rate: '40k',
+      recommended_pretrain: outputSr >= 48000 ? 'Ov2Super 48k (or Titan / Snowie 48k)' : 'Ov2Super 40k (or Titan / Snowie 40k)',
+      sample_rate: outputSr >= 48000 ? '48k' : '40k',
       batch_size: 8,
       total_epochs: 150,
       save_every_epoch: 10,
@@ -513,20 +629,80 @@ function applioDatasetInfo(): string {
   return JSON.stringify(info, null, 2);
 }
 
+let exportAbortController: AbortController | null = null;
+
+export function cancelExport(): void {
+  if (exportAbortController) {
+    exportAbortController.abort();
+    exportAbortController = null;
+    exportProgress.value = { active: false, current: 0, total: 0, currentFile: '', percent: 0 };
+    toast(t('toast.exportCancelled'));
+  }
+}
+
 export async function downloadZip(): Promise<void> {
   const real = currentTakes().filter(x => x.pcm);
-  if (!real.length) return;
+  if (!real.length || exportProgress.value.active) return;
   toast(t('toast.preparingZip'));
-  const parts = await buildZip(datasetEntries(real, settings.value.bits, readme(), 'rvc_dataset', applioDatasetInfo()));
-  download(parts as BlobPart[], 'rvc_dataset.zip', 'application/zip');
-  toast(t('toast.downloading', { name: 'rvc_dataset.zip' }));
+  exportAbortController = new AbortController();
+  const signal = exportAbortController.signal;
+  const total = real.length + 1 + 1; // takes + README + dataset_info
+  exportProgress.value = {
+    active: true,
+    current: 0,
+    total,
+    currentFile: '',
+    percent: 0,
+  };
+  try {
+    const targetSR = settings.value.exportSR === 'preserve'
+      ? undefined
+      : Number(settings.value.exportSR);
+    const parts = await streamDatasetZip(
+      real,
+      settings.value.bits,
+      readme(),
+      applioDatasetInfo(),
+      {
+        folder: 'rvc_dataset',
+        signal,
+        targetSR,
+        onProgress: p => {
+          exportProgress.value = {
+            active: true,
+            current: p.current,
+            total: p.total,
+            currentFile: p.currentFile,
+            percent: p.percent,
+          };
+        },
+      },
+    );
+    download(parts as BlobPart[], 'rvc_dataset.zip', 'application/zip');
+    toast(t('toast.downloading', { name: 'rvc_dataset.zip' }));
+  } catch (err: unknown) {
+    if (signal.aborted || (err instanceof Error && err.name === 'AbortError')) {
+      return;
+    }
+    console.error('Failed to export dataset zip:', err);
+    toast(t('toast.exportFail'));
+  } finally {
+    exportAbortController = null;
+    exportProgress.value = { active: false, current: 0, total: 0, currentFile: '', percent: 0 };
+  }
 }
 
 export function downloadSession(): void {
-  const r = sessionWav(currentTakes(), settings.value.bits);
-  if (!r) return;
-  download([r.data as BlobPart], 'rvc_session_full.wav', 'audio/wav');
-  toast(r.skipped ? t('toast.srMismatch') : t('toast.downloading', { name: 'rvc_session_full.wav' }));
+  try {
+    const r = sessionWav(currentTakes(), settings.value.bits);
+    if (!r) return;
+    sessionSkipped.value = r.skippedFiles;
+    download([r.data as BlobPart], 'rvc_session_full.wav', 'audio/wav');
+    toast(r.skipped ? t('toast.srMismatch') : t('toast.downloading', { name: 'rvc_session_full.wav' }));
+  } catch (err) {
+    console.error('Failed to export session wav:', err);
+    toast(t('toast.exportFail'));
+  }
 }
 
 export function downloadTake(): void {
@@ -546,6 +722,120 @@ export function clearSession(): void {
     phase.value = 'idle';
   });
   toast(t('toast.cleared'));
+}
+
+/* ---------------- backup / restore ---------------- */
+
+/**
+ * Serialises the entire session to a JSON backup and triggers a browser download.
+ * Includes: all takes (with PCM), settings, and lyrics.
+ */
+export async function downloadBackup(): Promise<void> {
+  try {
+    const allTk = [...takes.value.values()];
+    const voicedSeconds = allTk.reduce((s, tk) => s + (tk.voiced ?? 0), 0);
+
+    const backup: ProjectBackup = {
+      manifest: {
+        version: BACKUP_VERSION,
+        createdAt: new Date().toISOString(),
+        appVersion: (typeof import.meta !== 'undefined' && (import.meta as unknown as Record<string, unknown>).env)
+          ? ((import.meta as { env?: Record<string, unknown> }).env?.['VITE_APP_VERSION'] as string | undefined) ?? 'dev'
+          : 'dev',
+        takeCount: allTk.length,
+        voicedSeconds,
+      },
+      settings: { ...settings.value },
+      lyrics: [...lyrics.value],
+      takes: allTk.map(serializeTake),
+    };
+
+    const json = JSON.stringify(backup);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    const date = new Date().toISOString().slice(0, 10);
+    a.download = `rvc_backup_${date}.json`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    toast(t('toast.backupCreated'));
+  } catch (err) {
+    console.error('Failed to create backup:', err);
+    toast(t('toast.restoreFail'));
+  }
+}
+
+/**
+ * Reads and validates a File from a file input.
+ * Returns the parsed backup + preview, or throws BackupValidationError.
+ */
+export async function readBackupFile(
+  file: File,
+): Promise<{ backup: ProjectBackup; preview: RestorePreview }> {
+  const raw = await file.text();
+  const backup = parseBackup(raw); // throws BackupValidationError on invalid input
+  const preview = previewRestore(backup, takes.value);
+  return { backup, preview };
+}
+
+/**
+ * Commits a validated backup to the store. Call only after the user has
+ * confirmed. Transactional approach: puts all new takes first, then updates
+ * settings/lyrics signals (so a mid-write failure doesn't lose the old data).
+ */
+export async function confirmRestore(backup: ProjectBackup): Promise<void> {
+  if (run) {
+    toast(t('backup.duringRec'));
+    return;
+  }
+  try {
+    // 1. Write all takes to IndexedDB first (non-destructive: putTake is upsert)
+    const newTakes = backup.takes.map(deserializeTake);
+    for (const tk of newTakes) {
+      await putTake(tk);
+    }
+
+    // 2. Build new takes map (merge: existing + restored)
+    const newMap = new Map(takes.value);
+    const pos = new Map(bank.value.map(e => [e.id, e.n]));
+    for (const tk of newTakes) {
+      newMap.set(tk.key, { ...tk, n: pos.get(tk.id) ?? tk.n, saveStatus: 'saved' });
+    }
+
+    // 3. Restore settings & lyrics (localStorage)
+    if (backup.settings && typeof backup.settings === 'object') {
+      const merged = { ...settings.value, ...backup.settings };
+      saveSettings(merged as typeof settings.value);
+    }
+    if (Array.isArray(backup.lyrics) && backup.lyrics.length > 0) {
+      saveLyrics(backup.lyrics);
+    }
+
+    // 4. Update signals atomically
+    batch(() => {
+      takes.value = newMap;
+      if (Array.isArray(backup.lyrics)) lyrics.value = backup.lyrics;
+    });
+
+    toast(t('toast.restoreSuccess'));
+  } catch (err) {
+    console.error('Failed to restore backup:', err);
+    toast(t('toast.restoreFail'));
+  }
+}
+
+/** Requests persistent storage from the browser and shows a toast with the result. */
+export async function requestStoragePersistence(): Promise<boolean> {
+  try {
+    const granted = await requestPersistence();
+    toast(granted ? t('toast.persistGranted') : t('toast.persistDenied'));
+    return granted;
+  } catch {
+    return false;
+  }
 }
 
 /* ---------------- keyboard ---------------- */
@@ -591,7 +881,7 @@ export async function boot(): Promise<void> {
   // keep every take, also from languages currently turned off; numbers follow the current bank
   const pos = new Map(bank.value.map(e => [e.id, e.n]));
   const map = new Map<string, Take>();
-  for (const x of list) if (x && x.key && x.id) map.set(x.key, { ...x, n: pos.get(x.id) ?? x.n });
+  for (const x of list) if (x && x.key && x.id) map.set(x.key, { ...x, n: pos.get(x.id) ?? x.n, saveStatus: 'saved' });
   takes.value = map;
   if (map.size) toast(tn('toast.recovered', map.size));
 }
